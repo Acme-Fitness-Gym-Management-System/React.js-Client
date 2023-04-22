@@ -1,7 +1,7 @@
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {createTheme, NextUIProvider} from '@nextui-org/react';
-import Login from "./Login";
+import Employee from "./Components/Employee/Employee";
 
 
 const theme = createTheme({
@@ -13,7 +13,7 @@ const theme = createTheme({
             primaryLightHover: '$green300',
             primaryLightActive: '$green400',
             primaryLightContrast: '$green600',
-            primary: '#4ADE7B',
+            primary: '#0072F5',
             primaryBorder: '$green500',
             primaryBorderHover: '$green600',
             primarySolidHover: '$green700',
@@ -33,7 +33,6 @@ const theme = createTheme({
     }
 })
 
-
 function App() {
     return (
 
@@ -44,13 +43,22 @@ function App() {
             <BrowserRouter>
 
                 <Routes>
-                    <Route path='/' element={<Login/>}/>
+                    {/*todo*/}
+
+
+                    <Route path='/employee/analytics' element={<Employee/>}/>
+
+                    <Route path='/employee/userManagement' element={<Employee/>}/>
+
+                    <Route path='/employee/classManagement' element={<Employee/>}/>
+
+                    <Route path='/' element={<Employee/>}/>
+
+                    {/*<Route path='/home' element={<Landing/>}/>*/}
 
 
                 </Routes>
             </BrowserRouter>
-
-
         </NextUIProvider>
 
 
