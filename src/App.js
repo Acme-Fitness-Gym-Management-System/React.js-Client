@@ -1,8 +1,8 @@
 import './App.css';
 import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {createTheme, NextUIProvider} from '@nextui-org/react';
-import Login from "./Login";
 
+import Login from "./Components/Login/login.js";
 
 const theme = createTheme({
     type: "dark", // it could be "light" or "dark"
