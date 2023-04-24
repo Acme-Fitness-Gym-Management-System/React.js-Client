@@ -2,8 +2,8 @@ import EmployeeNavbar from "../Navbar/EmployeeNavbar";
 import {Button, Card, Dropdown, Grid, Spacer, Text} from "@nextui-org/react";
 import React, {useRef} from "react";
  import { Checkbox, Input, Modal, Row} from "@nextui-org/react";
-import CreateClassModal from "./Modal/Class/CreateClassModal";
-import UpdateClassModal from "./Modal/Class/UpdateClassModal";
+import CreateClassModal from "../Modal/Class/CreateClassModal";
+import UpdateClassModal from "../Modal/Class/UpdateClassModal";
 
 const ClassManagement = () => {
 
