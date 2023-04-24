@@ -3,6 +3,7 @@ import {Button, Card, Dropdown, Grid, Spacer, Text} from "@nextui-org/react";
 import React, {useRef} from "react";
  import { Checkbox, Input, Modal, Row} from "@nextui-org/react";
 import CreateClassModal from "./Modal/Class/CreateClassModal";
+import UpdateClassModal from "./Modal/Class/UpdateClassModal";
 
 const ClassManagement = () => {
 
@@ -10,6 +11,7 @@ const ClassManagement = () => {
 
     // Implementing a concept of calling a child function from a parent.
     const addClass = useRef();
+    const updateClass = useRef();
     return <>
 
         <Grid.Container justify="center">
@@ -20,9 +22,9 @@ const ClassManagement = () => {
                 <Card >
                     <Card.Body>
                        {/*calling a child function from parent*/}
-                        <Button onClick={()=>addClass.current.showModal()}> Create Class </Button>
+                        <Button onClick={()=>addClass.current.showModal()} > Create Class </Button>
                         <Spacer y={1}/>
-                        <Button > Update Class </Button>
+                        <Button onClick={()=>updateClass.current.showModal()}> Update Class </Button>
                         <Spacer y={1}/>
                         <Button > Delete Class </Button>
                     </Card.Body>
@@ -32,6 +34,7 @@ const ClassManagement = () => {
         </Grid.Container>
 
         <CreateClassModal ref={addClass} />
+        <UpdateClassModal ref={updateClass} />
 
     </>
 
