@@ -24,14 +24,21 @@ export default function Login() {
 
     const [message, setMessage] = useState(errorMessage);
 
-    const submitHandler = async(event)=>{
+    const [email, setEmail] = useState('');
+    const [emailError, setEmailError] = useState('');
 
-        event.preventDefault();
-        console.log("entered submit handler");
-        const email = event.target.email.value;
-        const pass = event.target.password.value;
+    const [password, setPassword] = useState('');
+    const [passwordError, setPasswordError] = useState('');
+    const [successMsg, setSuccessMsg] = useState('');
 
-        if(await authenticate(email,pass))
+
+    const submitHandler = async()=>{
+
+        // console.log("entered submit handler");
+        validateEmail(email);
+        validatePassword(password);
+
+        if(await authenticate(email,password))
         {
             console.log("authenticated successfully");
         }else {
@@ -39,11 +46,39 @@ export default function Login() {
             console.log("authentication failed");
         }
 
+    }
 
+    const validateEmail = (email) => {
+        if(email ==="")
+        {
+            setEmailError('Enter Email address!')
+        }
+    }
 
+    const validatePassword = (password) => {
+        if(password==="")
+        {
+            setPasswordError('Enter Password!')
+        }else if(password.length < 6)
+        {
+            setPasswordError('Password must contain atleast 6 characters!')
+        }
+    }
+
+    const handleEmailChange = (event) => {
+        setEmailError('');
+        setSuccessMsg('');
+        setEmail(event.target.value);
+    }
+
+    const handlePassChange = (event) => {
+        setPasswordError('');
+        setSuccessMsg('');
+        setPassword(event.target.value)
     }
 
     const authenticate = async(email, pass)=>{
+
         const response = await axios.post("http://localhost:8080/login",{
             email:email,
             password:pass
@@ -115,8 +150,11 @@ export default function Login() {
                         color="primary"
                         size="lg"
                         placeholder="Email"
+                        onChange={handleEmailChange}
                     />
-                    <Spacer y={1} />
+                    {/*<Spacer y={1} />*/}
+                    <br/>
+                    {emailError&&<div>{emailError}</div>}
                     <Input
                         clearable
                         bordered
@@ -124,7 +162,14 @@ export default function Login() {
                         color={"success"}
                         size="lg"
                         placeholder="Password"
+                        onChange={handlePassChange}
                     />
+                    <br/>
+
+                    {/*<Spacer y={1} />*/}
+
+                    {passwordError&&<div>{passwordError}</div>}
+
                     {/*<Row justify="space-between">*/}
                     {/*    <Checkbox>*/}
                     {/*        <Text size={14}>Remember me</Text>*/}
@@ -132,7 +177,7 @@ export default function Login() {
                     {/*    <Text size={14}>Forgot password?</Text>*/}
                     {/*</Row>*/}
                     <Spacer y={1} />
-                    <Button variant="primary" type="submit" onSubmit={submitHandler}>Sign in</Button>
+                    <Button variant="primary" onPress={submitHandler}>Sign in</Button>
                 </Card>
                 {displayError(error,message)}
 
