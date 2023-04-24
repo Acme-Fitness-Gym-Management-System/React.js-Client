@@ -1,14 +1,22 @@
 import {Button, Dropdown, Grid, Input, Loading, Modal, Text} from "@nextui-org/react";
-import React, {forwardRef, useImperativeHandle, useState} from "react";
+import React, {forwardRef, useEffect, useImperativeHandle, useState} from "react";
 import axios from "axios";
+import {useActionData} from "react-router-dom";
 
 
-const CreateClassModal = forwardRef(({}, ref) => {
+
+
+const updateClassModal = forwardRef(({}, ref) => {
     useImperativeHandle(ref, () => {
         return {
             showModal: show
         }
     })
+
+    useEffect(() => {
+        // here is where you make API call(s) or any side effects
+        // make api call to server and fetch all details regarding a class. based on class
+    }, [] )
 
     const days = [{key: "sunday"}, {key: "monday"}, {key: "tuesday"}, {key: "wednesday"}, {key: "thursday"}, {key: "friday"}, {key: "saturday"}];
 
@@ -22,6 +30,17 @@ const CreateClassModal = forwardRef(({}, ref) => {
     }];
 
     const [selected, setSelected] = React.useState(new Set(["Day of the week"]));
+
+    const [data, setData] = useState({
+        className:"Chiruhas",
+        instructorName:"Bobbadi",
+        startDate:"2000-06-26",
+        endDate:"2000-07-26",
+        startTime:"13:25",
+        endTime:"14:45",
+        day:"",
+        location:"",
+    });
 
     const selectedValue = React.useMemo(
         () => Array.from(selected).join(", ").replaceAll("_", " "),
@@ -85,7 +104,7 @@ const CreateClassModal = forwardRef(({}, ref) => {
             // do some validations on data
 
 
-              apiCall(data);
+            apiCall(data);
             // make a rest API call.
         }
 
@@ -120,13 +139,13 @@ const CreateClassModal = forwardRef(({}, ref) => {
 
                 <Grid.Container gap={2} justify={'center'}>
                     <Grid xs={12} justify={"center"}>
-                        <Text h3>Add Class</Text>
+                        <Text h3>Update Class</Text>
                     </Grid>
                     <Grid xs={12} justify={"center"}>
-                        <Input clearable bordered labelPlaceholder="Class Name" name="className" required/>
+                        <Input clearable bordered labelPlaceholder="Class Name" name="className" value={data.className} required/>
                     </Grid>
                     <Grid xs={12} justify={"center"}>
-                        <Input clearable bordered labelPlaceholder="Instructor Name" name="instructorName" required/>
+                        <Input clearable bordered labelPlaceholder="Instructor Name" name="instructorName" value={data.instructorName} required/>
 
                     </Grid>
                     <Grid xs={6} justify={"center"}>
@@ -136,6 +155,7 @@ const CreateClassModal = forwardRef(({}, ref) => {
                             type="date"
                             required
                             name="startDate"
+                            value={data.startDate}
                         />
                     </Grid>
                     <Grid xs={6} justify={"center"}>
@@ -145,6 +165,7 @@ const CreateClassModal = forwardRef(({}, ref) => {
                             type="date"
                             required
                             name="endDate"
+                            value={data.endDate}
                         />
                     </Grid>
                     <Grid xs={6} justify={"center"}>
@@ -153,6 +174,7 @@ const CreateClassModal = forwardRef(({}, ref) => {
                             label="Start Time"
                             type="time"
                             name="startTime"
+                            value={data.startTime}
                             required
                         />
                     </Grid>
@@ -162,6 +184,7 @@ const CreateClassModal = forwardRef(({}, ref) => {
                             label="End Time"
                             type="time"
                             name="endTime"
+                            value={data.endTime}
                             required
                         />
                     </Grid>
@@ -234,4 +257,4 @@ const CreateClassModal = forwardRef(({}, ref) => {
 
 });
 
-export default CreateClassModal;
+export default updateClassModal;
