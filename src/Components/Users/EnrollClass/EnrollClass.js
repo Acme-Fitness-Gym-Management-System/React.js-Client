@@ -1,4 +1,4 @@
-import {Dropdown, Grid, Text} from "@nextui-org/react";
+import {Button, Dropdown, Grid, Loading, Text} from "@nextui-org/react";
 import EnrollClassGrid from "./EnrollClassGrid";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
@@ -34,6 +34,8 @@ const days=[{key:"Monday"},{key:"Tuesday"},{key:"Wednesday"},{key:"Thursday"},{k
 
 
 
+
+
     // fetching activity data
     const getData = async () => {
         const { data } = await axios.get(`htttp://localhost:8080/getClasses`);
@@ -42,6 +44,7 @@ const days=[{key:"Monday"},{key:"Tuesday"},{key:"Wednesday"},{key:"Thursday"},{k
     useEffect(() => {
         getData();
     }, []);
+
 
 
     // this is the data at a given day and a location
