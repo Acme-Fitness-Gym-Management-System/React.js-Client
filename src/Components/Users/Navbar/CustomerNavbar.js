@@ -3,7 +3,7 @@ import {AcmeLogo} from "./Logo";
 
 
 
-function EmployeeNavbar(props){
+function CustomerNavbar(props){
 
     const s = "hello "+props.name
 
@@ -13,14 +13,14 @@ function EmployeeNavbar(props){
         <Navbar.Brand>
             <AcmeLogo/>
             <Text b color="inherit" hideIn="xs">
-                ACME
+                ACME Fitness
             </Text>
         </Navbar.Brand>
 
         <Navbar.Content hideIn="xs" variant="highlight-rounded">
-            <Navbar.Link href="/employee/analytics">Analytics</Navbar.Link>
-            <Navbar.Link href="/employee/class">Class Management</Navbar.Link>
-            <Navbar.Link href="/employee/user">User Management</Navbar.Link>`
+            {/*<Navbar.Link href="/employee/analytics">Analytics</Navbar.Link>*/}
+            {/*<Navbar.Link href="/employee/class">Class Management</Navbar.Link>*/}
+            {/*<Navbar.Link href="/employee/user">User Management</Navbar.Link>`*/}
 
         </Navbar.Content>
 
@@ -39,4 +39,4 @@ function EmployeeNavbar(props){
 }
 
 
-export default EmployeeNavbar
+export default CustomerNavbar

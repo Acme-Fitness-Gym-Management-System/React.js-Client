@@ -1,11 +1,11 @@
 import {Card, Grid, Spacer, Text} from "@nextui-org/react";
-import EmployeeNavbar from "../Navbar/EmployeeNavbar";
-import Analytics from "./Analytics";
-import ClassManagement from "./ClassManagement";
-import UserManagement from "./UserManagement";
+import EmployeeNavbar from "./Navbar/EmployeeNavbar";
+import Analytics from "./Sections/Analytics";
+import ClassManagement from "./Sections/ClassManagement";
+import UserManagement from "./Sections/UserManagement";
 
 
-const Employee = () => {
+const EmployeeDashboard = () => {
     return <>
         {/*todo*/}
         {/*Fetch user name and pass it down as prop.*/}
@@ -31,4 +31,4 @@ const Employee = () => {
 }
 
 
-export default Employee;
+export default EmployeeDashboard;

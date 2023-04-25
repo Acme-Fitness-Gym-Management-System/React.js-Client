@@ -1,7 +1,7 @@
 import {Button, Card, Grid, Spacer, Text} from "@nextui-org/react";
 import React, {useRef} from "react";
-import CreateUserModal from "./Modal/Users/CreateUserModal";
-import CheckModal from "./Modal/Users/CheckModal";
+import CreateUserModal from "../Modal/Users/CreateUserModal";
+import CheckModal from "../Modal/Users/CheckModal";
 
 
 const UserManagement = () => {
