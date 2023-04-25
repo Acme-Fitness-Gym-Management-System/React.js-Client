@@ -1,12 +1,12 @@
 import {Card, Grid, Spacer, Text} from "@nextui-org/react";
 import CustomerNavbar from "./Navbar/CustomerNavbar";
-import AddWorkout from "./AddWorkout";
+import AddWorkout from "./workoutTracking/AddWorkout";
 import React, {useEffect, useState} from "react";
-import WorkoutDashboard from "./WorkoutDashboard";
-import UpcomingClassCard from "./UpcomingClassCard";
-import ConsolidatedActivity from "./ConsolidatedActivity";
+import WorkoutDashboard from "./workoutTracking/WorkoutDashboard";
+import UpcomingClassCard from "./Classes/UpcomingClassCard";
+import ConsolidatedActivity from "./ConsolidatedWorkoutActivity/ConsolidatedActivity";
 import axios from "axios";
-import EnrollClass from "./EnrollClass/EnrollClass";
+import EnrollClass from "./Classes/EnrollClass/EnrollClass";
 
 
 const Employee = () => {
