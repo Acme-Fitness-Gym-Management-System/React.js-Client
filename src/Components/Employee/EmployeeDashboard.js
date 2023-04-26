@@ -3,6 +3,9 @@ import EmployeeNavbar from "./Navbar/EmployeeNavbar";
 import Analytics from "./Sections/Analytics";
 import ClassManagement from "./Sections/ClassManagement";
 import UserManagement from "./Sections/UserManagement";
+import ClassInfo from "./viewClasses/ClassInfo";
+
+
 
 
 const EmployeeDashboard = () => {
@@ -22,6 +25,8 @@ const EmployeeDashboard = () => {
             <Grid xs={3}></Grid>
 
         </Grid.Container>
+
+        <ClassInfo/>
 
 
 
