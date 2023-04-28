@@ -31,13 +31,13 @@ const CreateUserModal = forwardRef(({}, ref) => {
 
     const formSubmitHandler = (event) => {
         event.preventDefault();
-
+        //TODO change membership to integer
         const data={
-            userName :event.target.userName.value,
+            username :event.target.userName.value,
             password :event.target.password.value,
             email:event.target.email.value,
-            isTrail:isTrail,
-            membership:isTrail?"1":event.target.membership.value
+            istrail:isTrail,
+            membership:isTrail?"1":event.target.membership.value //Change this to integer
         }
 
 
@@ -50,8 +50,10 @@ const CreateUserModal = forwardRef(({}, ref) => {
 
     const apiCall = async (data) => {
         console.log("inside");
+        console.log(JSON.stringify(data))
         try{
-           const response =  await axios.post("localhost:4000/createUser", data)
+            //TODO convert to json
+           const response =  await axios.post("http://0.0.0.0:8080/userV2", JSON.stringify(data) )
             alert("User data entered sucessfully");
             setAddClassVisible(false);
 
