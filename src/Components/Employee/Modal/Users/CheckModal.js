@@ -1,6 +1,4 @@
-
-
-import {Button, Checkbox, Dropdown, Grid, Input, Loading, Modal, Spacer, Text} from "@nextui-org/react";
+import {Button, Grid, Input, Loading, Modal, Text} from "@nextui-org/react";
 import React, {forwardRef, useImperativeHandle, useState} from "react";
 import axios from "axios";
 
@@ -9,7 +7,7 @@ const CheckModal = forwardRef((props, ref) => {
     useImperativeHandle(ref, () => {
         return {
             checkInUser: checkIn,
-            checkOutUser:checkOut
+            checkOutUser: checkOut
         }
     })
 
@@ -19,18 +17,22 @@ const CheckModal = forwardRef((props, ref) => {
 
     const [visible, setAddClassVisible] = React.useState(false);
 
-    const [data, setData ] = useState({nane:"Check In User",isCheckIn:true,description:"Enter user email to check them in"});
+    const [data, setData] = useState({
+        nane: "Check In User",
+        isCheckIn: true,
+        description: "Enter user email to check them in"
+    });
 
 
-    const checkIn = ()=>{
+    const checkIn = () => {
         setAddClassVisible(true);
         setLoading(false);
-        setData({name:"Check In User", isCheckIn: true,description:"Enter user email to check them in"});
+        setData({name: "Check In User", isCheckIn: true, description: "Enter user email to check them in"});
     }
-    const checkOut = ()=>{
+    const checkOut = () => {
         setAddClassVisible(true);
         setLoading(false);
-        setData({name:"Check Out User", isCheckIn: false,description:"Enter user email to check them out"});
+        setData({name: "Check Out User", isCheckIn: false, description: "Enter user email to check them out"});
     }
 
 
@@ -47,9 +49,21 @@ const CheckModal = forwardRef((props, ref) => {
         //     "employeeid": 0,
         //     "locationid": 0,
         //     "type": 0, // 1 for checkin 2 for checkout
-        //     "userid": 0
+        //     "email": 0
         // }
-        const data = {"email":event.target.email.value}
+
+
+        //todo fetch locationid and employeeid from local data.
+
+        const employee = JSON.parse(sessionStorage.employee)
+
+        const data = {
+            "email": event.target.email.value,
+            "type" : data.isCheckIn?1:2,
+            "locationid":employee.locationid,
+            "employeeid":employee.id
+
+        }
         apiCall(data)
 
 
@@ -57,15 +71,15 @@ const CheckModal = forwardRef((props, ref) => {
 
     const apiCall = async (data) => {
         console.log("inside");
-        const url= data.isCheckIn?"http://0.0.0.0:8080/checkinRecord":"http://0.0.0.0:8080/checkoutRecord"
+        const url = data.isCheckIn ? "http://0.0.0.0:8080/checkinRecord" : "http://0.0.0.0:8080/checkoutRecord"
 
-        try{
-            const response =  await axios.post(url, data)
+        try {
+            const response = await axios.post(url, data)
             alert("User data entered sucessfully");
             setAddClassVisible(false);
 
 
-        }catch (e){
+        } catch (e) {
             alert("OOPs something happened");
         }
 
@@ -74,8 +88,7 @@ const CheckModal = forwardRef((props, ref) => {
     }
 
     const el = loading ? <Button type="submit"><Loading color='success'/></Button> :
-        <Button type="submit">{data.isCheckIn?"Check In":"Check Out"}</Button>
-
+        <Button type="submit">{data.isCheckIn ? "Check In" : "Check Out"}</Button>
 
 
     return <>
@@ -98,7 +111,8 @@ const CheckModal = forwardRef((props, ref) => {
                     </Grid>
 
                     <Grid xs={12} justify={"center"}>
-                        <Input size="lg" clearable bordered type="email" labelPlaceholder="johndoe@company.com" name="email" required/>
+                        <Input size="lg" clearable bordered type="email" labelPlaceholder="johndoe@company.com"
+                               name="email" required/>
 
 
                     </Grid>

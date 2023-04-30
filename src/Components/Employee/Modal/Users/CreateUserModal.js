@@ -31,13 +31,12 @@ const CreateUserModal = forwardRef(({}, ref) => {
 
     const formSubmitHandler = (event) => {
         event.preventDefault();
-        //TODO change membership to integer
         const data={
             username :event.target.userName.value,
             password :event.target.password.value,
             email:event.target.email.value,
             istrail:isTrail,
-            membership:isTrail?"1":event.target.membership.value //Change this to integer
+            membership:isTrail?1: parseInt(event.target.membership.value)
         }
 
 

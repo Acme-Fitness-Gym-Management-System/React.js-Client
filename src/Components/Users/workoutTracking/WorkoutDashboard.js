@@ -1,5 +1,6 @@
 import {Container, Dropdown, Grid, Text} from "@nextui-org/react";
 import React, {useEffect} from "react";
+import axios from "axios";
 
 const WorkoutDashboard = (props) => {
 
@@ -21,8 +22,35 @@ const WorkoutDashboard = (props) => {
     })
 
 
+    const getData = async () => {
+        //todo
+
+        let d=""
+        day.forEach((value) =>{
+            d = value
+        });
+        d = d.split(" ")[0]
+
+
+        const { data } = await axios.get(`http://0.0.0.0:8080/getPastWorkoutData?days=${d}`);
+
+        // todo
+        // required data format
+        /**
+         * {
+         *         treadmill: "x",
+         *         cycling: "y",
+         *         stairMachine: "z",
+         *         weightTrainning: "a"
+         *     }
+         */
+
+        //setActivityData(data);
+    };
+
     useEffect(() => {
-//todo
+    //todo
+        getData()
     });
 
     return <Grid.Container>

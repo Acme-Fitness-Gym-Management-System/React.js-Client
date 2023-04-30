@@ -17,13 +17,27 @@ const EnrollClassCard = (props)=>{
 
         // id of the class that is clicked will be availale in props.id.
 
+        const user = JSON.parse(sessionStorage.user)
+
         const data ={
             classId:props.id,
-            userId:"userId"
+            userId:user.id
         }
+
+
 
         setLoading(true);
         // api call
+
+        try{
+
+           await axios.post("http://0.0.0.0:8080/enroll", JSON.stringify(data) )
+
+
+
+        }catch (e){
+            alert("OOPs something happened");
+        }
 
         setLoading(false);
 

@@ -19,12 +19,23 @@ const Employee = () => {
 
     // fetching activity data
     const getData = async () => {
-        const { data } = await axios.get(`htttp://localhost:8080/getActivityData`);
+        //todo
+        /**
+         *
+         *
+         * [jan:[0:80,1:90,2:0,.......]......]
+         *
+         *
+         */
+
+        const { data } = await axios.get(`http://0.0.0.0:8080/getActivityData`);
         setActivityData(data);
     };
     useEffect(() => {
         getData();
     }, []);
+
+
 
 
 
