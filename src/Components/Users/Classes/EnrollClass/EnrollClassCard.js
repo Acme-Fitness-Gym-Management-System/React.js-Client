@@ -17,11 +17,12 @@ const EnrollClassCard = (props)=>{
 
         // id of the class that is clicked will be availale in props.id.
 
-        const user = JSON.parse(sessionStorage.user)
+        //todo
+        //const user = JSON.parse(sessionStorage.user)
 
         const data ={
             classId:props.id,
-            userId:user.id
+            userId:""
         }
 
 

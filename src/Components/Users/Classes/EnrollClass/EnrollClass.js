@@ -25,7 +25,7 @@ const days=[{key:"Monday"},{key:"Tuesday"},{key:"Wednesday"},{key:"Thursday"},{k
         [selected]
     );
 
-    const [location, setLocation] = React.useState(new Set(["San jose"]));
+    const [location, setLocation] = React.useState(new Set(["san fransico"]));
 
     const locationValue = React.useMemo(
         () => Array.from(location).join(", ").replaceAll("_", " "),
@@ -49,16 +49,21 @@ const days=[{key:"Monday"},{key:"Tuesday"},{key:"Wednesday"},{key:"Thursday"},{k
             l = value
         });
 
-        //todo get location id and send it, instead of sending location
+        let dp = locations.filter((el)=>{
 
+            return el.key===l
+        })
+        const locValue = dp[0].value
 
-        const { data } = await axios.get(`http://0.0.0.0:8080/getClasses?day=${d}&location=${l}`);
+        console.log(locValue);
+
+         const { data } = await axios.get(`http://0.0.0.0:8080/getClasses?day=${d}&location=${locValue}`);
 
         setData(data);
     };
 
     useEffect(() => {
-        getData().then(r => console.log("hello")).catch(err=> console.log(err));
+        getData();
     }, []);
 
 
