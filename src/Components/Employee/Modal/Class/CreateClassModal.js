@@ -72,14 +72,11 @@ const CreateClassModal = forwardRef(({}, ref) => {
 
             setLoading(true);
 
-            //TODO:: Add Class params : add cost and map location to locationid & make all letters lower case
-            //TODO: add get API to get locations from http://0.0.0.0:8080/alllocations
-
-            //todo modify code to get id.
             const d = locations.filter((el)=>{
-                console.log(el +" "+location);
-                return el.key.localeCompare(location)===0
+
+                return el.key===location
             })
+            const locValue = d[0].value
 
             const data = {
                 name: event.target.className.value, //change to name
@@ -88,10 +85,12 @@ const CreateClassModal = forwardRef(({}, ref) => {
                 enddate: event.target.endDate.value,
                 starttime: event.target.startTime.value,
                 endtime: event.target.endTime.value,
-                locationid: 1, //change to locationid
-                day: day, //add cost
-                cost:10
+                locationid: d, //change to locationid
+                day: day,
+                cost:event.target.cost.value
             }
+
+
 
 
             // do some validations on data
@@ -177,6 +176,10 @@ const CreateClassModal = forwardRef(({}, ref) => {
                             name="endTime"
                             required
                         />
+                    </Grid>
+                    <Grid xs={12} justify={"center"}>
+                        <Input type="number" clearable bordered labelPlaceholder="Cost (USD)" name="cost" required/>
+
                     </Grid>
                     <Grid xs={12} justify={"center"}>
                         <Dropdown name="day">

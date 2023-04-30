@@ -11,9 +11,13 @@ import EnrollClass from "./Classes/EnrollClass/EnrollClass";
 
 const Employee = () => {
 
+    //todo revert
+    // const user = JSON.parse(sessionStorage.user)
+    //
+    // // fetch customer name
+    // const customerName = user.name
 
-    // fetch customer name
-    const customerName = "Chiruhas"
+    const customerName="chiruhas"
 
     const [activityData, setActivityData] = useState({})
 

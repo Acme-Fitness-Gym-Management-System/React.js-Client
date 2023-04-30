@@ -5,7 +5,7 @@ import {useActionData} from "react-router-dom";
 
 
 
-
+// todo 
 const updateClassModal = forwardRef(({}, ref) => {
     useImperativeHandle(ref, () => {
         return {
@@ -90,15 +90,22 @@ const updateClassModal = forwardRef(({}, ref) => {
 
             setLoading(true);
 
+            const d = locations.filter((el)=>{
+
+                return el.key===location
+            })
+            const locValue = d[0].value
+
             const data = {
                 className: event.target.className.value,
-                instructorName: event.target.instructorName.value,
-                startDate: event.target.startDate.value,
-                endDate: event.target.endDate.value,
-                startTime: event.target.startTime.value,
-                endTime: event.target.endTime.value,
+                instructorname: event.target.instructorName.value,
+                startdate: event.target.startDate.value,
+                enddate: event.target.endDate.value,
+                starttime: event.target.startTime.value,
+                endtime: event.target.endTime.value,
                 location: location,
-                day: day
+                day: day,
+                cost:event.target.cost.value
             }
 
             // do some validations on data
@@ -187,6 +194,10 @@ const updateClassModal = forwardRef(({}, ref) => {
                             value={data.endTime}
                             required
                         />
+                    </Grid>
+                    <Grid xs={12} justify={"center"}>
+                        <Input type="number" clearable bordered labelPlaceholder="Cost (USD)" name="cost" required/>
+
                     </Grid>
                     <Grid xs={12} justify={"center"}>
                         <Dropdown name="day">
