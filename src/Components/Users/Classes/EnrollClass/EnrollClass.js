@@ -38,11 +38,27 @@ const days=[{key:"Monday"},{key:"Tuesday"},{key:"Wednesday"},{key:"Thursday"},{k
 
     // fetching activity data
     const getData = async () => {
-        const { data } = await axios.get(`htttp://localhost:8080/getClasses`);
+
+        let d=""
+       selected.forEach((value) =>{
+           d = value
+       });
+
+        let l=""
+        location.forEach((value) =>{
+            l = value
+        });
+
+        //todo get location id and send it, instead of sending location
+
+
+        const { data } = await axios.get(`http://0.0.0.0:8080/getClasses?day=${d}&location=${l}`);
+
         setData(data);
     };
+
     useEffect(() => {
-        getData();
+        getData().then(r => console.log("hello")).catch(err=> console.log(err));
     }, []);
 
 

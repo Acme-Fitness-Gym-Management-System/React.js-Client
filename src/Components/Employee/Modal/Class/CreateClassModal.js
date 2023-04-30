@@ -10,9 +10,10 @@ const CreateClassModal = forwardRef(({}, ref) => {
         }
     })
 
-    const days = [{key: "sunday"}, {key: "monday"}, {key: "tuesday"}, {key: "wednesday"}, {key: "thursday"}, {key: "friday"}, {key: "saturday"}];
+    const days=[{key:"Monday"},{key:"Tuesday"},{key:"Wednesday"},{key:"Thursday"},{key:"Friday"},{key:"Saturday"}]
 
     // hardcoded these locations for now
+    // todo change value corresponding
     const locations = [{key: "San jose", value: 1}, {key: "san fransico", value: 1}, {
         key: "Sacramento",
         value: 2
@@ -73,6 +74,13 @@ const CreateClassModal = forwardRef(({}, ref) => {
 
             //TODO:: Add Class params : add cost and map location to locationid & make all letters lower case
             //TODO: add get API to get locations from http://0.0.0.0:8080/alllocations
+
+            //todo modify code to get id.
+            const d = locations.filter((el)=>{
+                console.log(el +" "+location);
+                return el.key.localeCompare(location)===0
+            })
+
             const data = {
                 name: event.target.className.value, //change to name
                 instructorname: event.target.instructorName.value,
