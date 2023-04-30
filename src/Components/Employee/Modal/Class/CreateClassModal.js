@@ -13,7 +13,7 @@ const CreateClassModal = forwardRef(({}, ref) => {
     const days = [{key: "sunday"}, {key: "monday"}, {key: "tuesday"}, {key: "wednesday"}, {key: "thursday"}, {key: "friday"}, {key: "saturday"}];
 
     // hardcoded these locations for now
-    const locations = [{key: "San jose", value: 0}, {key: "san fransico", value: 1}, {
+    const locations = [{key: "San jose", value: 1}, {key: "san fransico", value: 1}, {
         key: "Sacramento",
         value: 2
     }, {key: "Milpitas", value: 3}, {key: "Sunnyvale", value: 4}, {key: "Santa Clara", value: 5}, {
@@ -71,16 +71,20 @@ const CreateClassModal = forwardRef(({}, ref) => {
 
             setLoading(true);
 
+            //TODO:: Add Class params : add cost and map location to locationid & make all letters lower case
+            //TODO: add get API to get locations from http://0.0.0.0:8080/alllocations
             const data = {
-                className: event.target.className.value,
-                instructorName: event.target.instructorName.value,
-                startDate: event.target.startDate.value,
-                endDate: event.target.endDate.value,
-                startTime: event.target.startTime.value,
-                endTime: event.target.endTime.value,
-                location: location,
-                day: day
+                name: event.target.className.value, //change to name
+                instructorname: event.target.instructorName.value,
+                startdate: event.target.startDate.value,
+                enddate: event.target.endDate.value,
+                starttime: event.target.startTime.value,
+                endtime: event.target.endTime.value,
+                locationid: 1, //change to locationid
+                day: day, //add cost
+                cost:10
             }
+
 
             // do some validations on data
 
@@ -94,8 +98,9 @@ const CreateClassModal = forwardRef(({}, ref) => {
 
     const apiCall = async (data) => {
         console.log("inside");
+        console.log(JSON.stringify(data));
         try{
-            await axios.post('/', data)
+            await axios.post('http://0.0.0.0:8080/class', JSON.stringify(data))
         }catch (e){
             alert("OOPs something happened");
         }

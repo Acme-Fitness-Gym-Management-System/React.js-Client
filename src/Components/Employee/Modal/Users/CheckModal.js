@@ -43,7 +43,12 @@ const CheckModal = forwardRef((props, ref) => {
     const formSubmitHandler = (event) => {
         event.preventDefault();
 
-
+        // {
+        //     "employeeid": 0,
+        //     "locationid": 0,
+        //     "type": 0, // 1 for checkin 2 for checkout
+        //     "userid": 0
+        // }
         const data = {"email":event.target.email.value}
         apiCall(data)
 
@@ -52,7 +57,7 @@ const CheckModal = forwardRef((props, ref) => {
 
     const apiCall = async (data) => {
         console.log("inside");
-        const url= data.isCheckIn?"localhost:4000/checkIn":"localhost:4000/checkOut"
+        const url= data.isCheckIn?"http://0.0.0.0:8080/checkinRecord":"http://0.0.0.0:8080/checkoutRecord"
 
         try{
             const response =  await axios.post(url, data)
