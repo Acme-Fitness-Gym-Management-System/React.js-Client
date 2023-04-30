@@ -88,18 +88,38 @@ export default function Login() {
 
         if(data.error==="Success"){
             // go to home
-            var userdetails = response.data.object;
-            userdetails = JSON.parse(userdetails);
-            var id = userdetails.id;
-            var username = userdetails.username;
+            var details = response.data.object;
+            details = JSON.parse(details);
 
-            sessionStorage.setItem('userId', id);
-            sessionStorage.setItem('userName', username);
-            console.log(data.name);
-            if(data.type==="employee")
+
+            if(data.type==="employee") {
+                const d = details.object;
+
+                const el={
+                    id:d.id,
+                    locationid:d.locationid,
+                    name:d.name,
+                    email:d.email
+                }
+
+
+                sessionStorage.setItem('employee', JSON.stringify(el));
+
                 navigate("/employee");
-            else
+            }
+            else{
+                const d = details.object;
+
+                const el={
+                    id:d.id,
+                    name:d.name,
+                    email:d.email
+                }
+                sessionStorage.setItem('user', JSON.stringify(el));
+
                 navigate("/user");
+            }
+
 
             return true;
         }else{
