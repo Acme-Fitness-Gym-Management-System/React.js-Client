@@ -34,15 +34,27 @@ const WorkoutDashboard = (props) => {
 
         const { data } = await axios.get(`http://0.0.0.0:8080/getPastWorkoutData?days=${d}`);
 
-        // todo
+        // Done
         // required data format
         /**
-         * {
-         *         treadmill: "x",
-         *         cycling: "y",
-         *         stairMachine: "z",
-         *         weightTrainning: "a"
-         *     }
+         * [
+         *   {
+         *     "devicetype": "Thread Min",
+         *     "totaltimeseconds": 5100
+         *   },
+         *   {
+         *     "devicetype": "cycling",
+         *     "totaltimeseconds": 5100
+         *   },
+         *   {
+         *     "devicetype": "stair machine",
+         *     "totaltimeseconds": 3600
+         *   },
+         *   {
+         *     "devicetype": "weight training",
+         *     "totaltimeseconds": 2700
+         *   }
+         * ]
          */
 
         //setActivityData(data);

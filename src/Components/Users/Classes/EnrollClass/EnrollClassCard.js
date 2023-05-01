@@ -21,8 +21,8 @@ const EnrollClassCard = (props)=>{
         //const user = JSON.parse(sessionStorage.user)
 
         const data ={
-            classId:props.id,
-            userId:""
+            classid:props.id,
+            userid:""
         }
 
 
@@ -32,7 +32,7 @@ const EnrollClassCard = (props)=>{
 
         try{
 
-           await axios.post("http://0.0.0.0:8080/enroll", JSON.stringify(data) )
+           await axios.post("http://0.0.0.0:8080/classCatalogue", JSON.stringify(data) )
 
 
 
