@@ -31,7 +31,7 @@ const WorkoutDashboard = (props) => {
         });
         d = d.split(" ")[0]
 
-
+        //TODO add user id to the params as well
         const { data } = await axios.get(`http://0.0.0.0:8080/getPastWorkoutData?days=${d}`);
 
         // Done
