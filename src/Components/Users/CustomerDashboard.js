@@ -23,16 +23,43 @@ const Employee = () => {
 
     // fetching activity data
     const getData = async () => {
-        //todo
+        //Done
         /**
          *
          *
-         * [jan:[0:80,1:90,2:0,.......]......]
+         * [
+         *   {
+         *     "activity": [
+         *       {
+         *         "day": 0,
+         *         "time": 0 //total time in seconds
+         *       }
+         *     ],
+         *     "month": 1
+         *   },
+         *   .
+         *   .
+         *   .
+         *   .
+         *   .
+         *   .
+         *
+         *   {
+         *     "activity": [
+         *       {
+         *         "day": 0,
+         *         "time": 0
+         *       }
+         *     ],
+         *     "month": 12
+         *   }
+         * ]
          *
          *
          */
 
-        const { data } = await axios.get(`http://0.0.0.0:8080/getActivityData`);
+            //TODO:: add userid below
+        const { data } = await axios.get(`http://0.0.0.0:8080/getDayWiseUserActivity?userid={}`);
         setActivityData(data);
     };
     useEffect(() => {
