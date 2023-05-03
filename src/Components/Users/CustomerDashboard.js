@@ -25,7 +25,8 @@ const Employee = () => {
     // fetching activity data
     const getData = async () => {
 
-        const { data } = await axios.get(`http://0.0.0.0:8080/getActivityData`);
+        //TODO:: add userid below
+        const { data } = await axios.get(`http://0.0.0.0:8080/getDayWiseUserActivity?userid={}`);
 
         // todo figure out how to properly update state.
         let temp = [];
