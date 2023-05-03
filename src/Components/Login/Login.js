@@ -14,8 +14,8 @@ import {useState} from "react";
 import {useNavigate} from "react-router-dom";
 
 
-export default function Login() {
-    console.log("entered login");
+export default () => {
+
 
     const navigate = useNavigate();
     let mes=false;

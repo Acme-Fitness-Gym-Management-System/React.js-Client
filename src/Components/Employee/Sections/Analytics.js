@@ -64,7 +64,7 @@ const Analytics = () => {
 
                     width={1000}
                     height={300}
-                    data={data}
+                    // data={data}
                     margin={{
                         top: 5,
                         right: 0,

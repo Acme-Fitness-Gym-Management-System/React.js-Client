@@ -5,7 +5,6 @@ import React, {useEffect, useState} from "react";
 import WorkoutDashboard from "./workoutTracking/WorkoutDashboard";
 import UpcomingClassCard from "./Classes/UpcomingClassCard";
 import ConsolidatedActivity from "./ConsolidatedWorkoutActivity/ConsolidatedActivity";
-import axios from "axios";
 import EnrollClass from "./Classes/EnrollClass/EnrollClass";
 
 
@@ -17,58 +16,34 @@ const Employee = () => {
     // // fetch customer name
     // const customerName = user.name
 
-    const customerName="chiruhas"
+    const customerName = "chiruhas"
 
-    const [activityData, setActivityData] = useState({})
+    const [activityData, setActivityData] = useState([[], [], [], [], [], [], [], [], [], [], [], []])
+
+    //
 
     // fetching activity data
     const getData = async () => {
-        //Done
-        /**
-         *
-         *
-         * [
-         *   {
-         *     "activity": [
-         *       {
-         *         "day": 0,
-         *         "time": 0 //total time in seconds
-         *       }
-         *     ],
-         *     "month": 1
-         *   },
-         *   .
-         *   .
-         *   .
-         *   .
-         *   .
-         *   .
-         *
-         *   {
-         *     "activity": [
-         *       {
-         *         "day": 0,
-         *         "time": 0
-         *       }
-         *     ],
-         *     "month": 12
-         *   }
-         * ]
-         *
-         *
-         */
 
-            //TODO:: add userid below
+        //TODO:: add userid below
         const { data } = await axios.get(`http://0.0.0.0:8080/getDayWiseUserActivity?userid={}`);
-        setActivityData(data);
+
+        // todo figure out how to properly update state.
+        let temp = [];
+        data.forEach((el, index) => {
+            temp.push([...el.activity]);
+        })
+        console.log(JSON.stringify(temp));
+
+        setActivityData((old) => {
+            return temp
+        });
+
+
     };
     useEffect(() => {
         getData();
     }, []);
-
-
-
-
 
 
     return <>
@@ -96,7 +71,7 @@ const Employee = () => {
                                             <Text h4>Upcoming Classes</Text>
                                         </Grid>
 
-                                            <UpcomingClassCard/>
+                                        <UpcomingClassCard/>
 
                                     </Grid.Container>
 
@@ -164,9 +139,9 @@ const Employee = () => {
                                             </Grid>
                                             {/*todo*/}
                                             {/*pass data here of corresponding month*/}
-                                            {/*todo replicate this process for the remaining monts.*/}
+                                            {/*todo replicate this process for the remaining months.*/}
 
-                                            {/*<ConsolidatedActivity data={activityData.january}/>*/}
+                                            <ConsolidatedActivity data={activityData[0]}/>
 
 
                                         </Grid.Container>
@@ -180,21 +155,94 @@ const Employee = () => {
                                                 <Text h5>February</Text>
                                             </Grid>
 
-                                            {/*<ConsolidatedActivity />*/}
+                                            <ConsolidatedActivity data={activityData[1]}/>
 
                                         </Grid.Container>
 
                                     </Grid>
-                                    <Grid xs={1} justify="center"><Text h5>March</Text></Grid>
-                                    <Grid xs={1} justify="center"><Text h5>April</Text></Grid>
-                                    <Grid xs={1} justify="center"><Text h5>May</Text></Grid>
-                                    <Grid xs={1} justify="center"><Text h5>June</Text></Grid>
-                                    <Grid xs={1} justify="center"><Text h5>July</Text></Grid>
-                                    <Grid xs={1} justify="center"><Text h5>August</Text></Grid>
-                                    <Grid xs={1} justify="center"><Text h5>September</Text></Grid>
-                                    <Grid xs={1} justify="center"><Text h5>October</Text></Grid>
-                                    <Grid xs={1} justify="center"><Text h5>November</Text></Grid>
-                                    <Grid xs={1} justify="center"><Text h5>December</Text></Grid>
+                                    <Grid xs={1} justify="center">
+                                        <Grid.Container>
+                                            <Grid xs={12}>
+                                                <Text h5>March</Text>
+                                            </Grid>
+
+                                            <ConsolidatedActivity data={activityData[2]}/>
+
+                                        </Grid.Container>
+
+                                    </Grid>
+                                    <Grid xs={1} justify="center"> <Grid.Container>
+                                        <Grid xs={12}>
+                                            <Text h5>Aril</Text>
+                                        </Grid>
+
+                                        <ConsolidatedActivity data={activityData[3]}/>
+
+                                    </Grid.Container></Grid>
+                                    <Grid xs={1} justify="center"> <Grid.Container>
+                                        <Grid xs={12}>
+                                            <Text h5>May</Text>
+                                        </Grid>
+
+                                        <ConsolidatedActivity data={activityData[4]}/>
+
+                                    </Grid.Container></Grid>
+                                    <Grid xs={1} justify="center"> <Grid.Container>
+                                        <Grid xs={12}>
+                                            <Text h5>June</Text>
+                                        </Grid>
+
+                                        <ConsolidatedActivity data={activityData[5]}/>
+
+                                    </Grid.Container></Grid>
+                                    <Grid xs={1} justify="center"> <Grid.Container>
+                                        <Grid xs={12}>
+                                            <Text h5>July</Text>
+                                        </Grid>
+
+                                        <ConsolidatedActivity data={activityData[6]}/>
+
+                                    </Grid.Container></Grid>
+                                    <Grid xs={1} justify="center"> <Grid.Container>
+                                        <Grid xs={12}>
+                                            <Text h5>August</Text>
+                                        </Grid>
+
+                                        <ConsolidatedActivity data={activityData[7]}/>
+
+                                    </Grid.Container></Grid>
+                                    <Grid xs={1} justify="center"> <Grid.Container>
+                                        <Grid xs={12}>
+                                            <Text h5>September</Text>
+                                        </Grid>
+
+                                        <ConsolidatedActivity data={activityData[8]}/>
+
+                                    </Grid.Container></Grid>
+                                    <Grid xs={1} justify="center"> <Grid.Container>
+                                        <Grid xs={12}>
+                                            <Text h5>October</Text>
+                                        </Grid>
+
+                                        <ConsolidatedActivity data={activityData[9]}/>
+
+                                    </Grid.Container></Grid>
+                                    <Grid xs={1} justify="center"> <Grid.Container>
+                                        <Grid xs={12}>
+                                            <Text h5>November</Text>
+                                        </Grid>
+
+                                        <ConsolidatedActivity data={activityData[10]}/>
+
+                                    </Grid.Container></Grid>
+                                    <Grid xs={1} justify="center"> <Grid.Container>
+                                        <Grid xs={12}>
+                                            <Text h5>December</Text>
+                                        </Grid>
+
+                                        <ConsolidatedActivity data={activityData[11]}/>
+
+                                    </Grid.Container></Grid>
                                 </Grid.Container>
 
                             </Card.Body>
@@ -208,8 +256,7 @@ const Employee = () => {
                 <Grid xs={12} justify="center"><Text h2> Enroll Classes</Text></Grid>
 
 
-                <Grid xs={12} justify="center"><EnrollClass /></Grid>
-
+                <Grid xs={12} justify="center"><EnrollClass/></Grid>
 
 
             </Grid.Container>

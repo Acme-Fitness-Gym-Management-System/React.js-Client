@@ -3,7 +3,8 @@ import {BrowserRouter, Route, Routes} from "react-router-dom";
 import {createTheme, NextUIProvider} from '@nextui-org/react';
 import EmployeeDashboard from "./Components/Employee/EmployeeDashboard";
 import CustomerDashboard from "./Components/Users/CustomerDashboard";
-import Login from "./Components/Login/login";
+import Login from "./Components/Login/Login";
+
 
 
 const theme = createTheme({
