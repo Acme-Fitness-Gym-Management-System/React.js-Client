@@ -1,71 +1,87 @@
 import {useEffect, useState} from "react";
-import {Card, Dropdown, Grid, Spacer, Text, Tooltip} from "@nextui-org/react";
+import {Card, Grid, Spacer, Tooltip} from "@nextui-org/react";
 
-const ConsolidatedActivityDashboard = (props)=>{
+const ConsolidatedActivity = (props) => {
 
-
-const [data, setData] = useState(props.data);
-
-
+    console.log(props.data);
+    const [data, setData] = useState([]);
 
 
-const len =30
+    let len = data.length
 
 
-        /**
-         *
-         * lets have 3 intensities of green color
-         * #AFE1AF => for 15 to 30 mins
-         * #50C878 => for 30 to 60 mins
-         * #4F7942 => for 60 mins+
-         *
-         *
-         *
-          */
-return data.map((d,i)=> <Grid.Container key={i} justify="center">
+    // console.log(len);
 
 
-        <Grid xs={4}>
-
-<Tooltip content={i+1}>
-    <Card variant="bordered" css={{ width: "15px",height:"15px", backgroundColor:data[i].workoutTime==0?"#000":data[i].workoutTime>60?"#4F7942 ":data[i].workoutTime>30?"#50C878": "#AFE1AF"}}></Card>
-
-</Tooltip>
-            <Spacer y={1.3}></Spacer>
-
-        </Grid>
-        <Grid xs={4}>
-            <Tooltip content={i+11}>
-                <Card variant="bordered" css={{ width: "15px",height:"15px", backgroundColor:data[i].workoutTime>60?"#4F7942 ":data[i].workoutTime>30?"#50C878":"#AFE1AF"}}></Card>
-            </Tooltip>
+    /**
+     *
+     * lets have 3 intensities of green color
+     * #AFE1AF => for 15 to 30 mins
+     * #50C878 => for 30 to 60 mins
+     * #4F7942 => for 60 mins+
+     *
+     *
+     *
+     */
 
 
-
-        </Grid>
-        <Grid xs={4}>
-
-            {/*<Tooltip content={i+22<=len?i+22:""}>*/}
-            {/*    {i+22 <=len?<Card variant="bordered" css={{ mw: "15px",mh:"15px",backgroundColor:data[i].workoutTime>60?"#4F7942 ":data[i].workoutTime>30?"#50C878":"#AFE1AF" }}></Card>:""}*/}
-            {/*</Tooltip>*/}
-            <Tooltip content={i+22<=len?i+22:""}>
-                {/*<Card variant="bordered" css={{ width: "15px",height:"15px", backgroundColor:data[i].workoutTime>60?"#4F7942 ":data[i].workoutTime>30?"#50C878":"#AFE1AF"}}></Card>*/}
-                {i+22<=len?<Card variant="bordered" css={{ width: "15px",height:"15px", backgroundColor:data[i].workoutTime>60?"#4F7942 ":data[i].workoutTime>30?"#50C878":"#AFE1AF"}}></Card>:""}
-            </Tooltip>
-            <Spacer y={1}></Spacer>
-
-
-        </Grid>
-
-    </Grid.Container>
-)
+    useEffect(()=>{
+        setData((old)=>props.data)
 
 
 
 
+    })
+
+
+
+    return data.map((d, i) => <Grid.Container key={i} justify="center">
+
+            <Grid xs={4}>
+
+                <Tooltip content={i + 1}>
+                    <Card variant="bordered" css={{
+                        width: "15px",
+                        height: "15px",
+                        backgroundColor: data[i].time === 0 ? "#000" : data[i].time > 60 ? "#4F7942 " : data[i].time > 30 ? "#50C878" : "#AFE1AF"
+                    }}></Card>
+
+                </Tooltip>
+                <Spacer y={1.3}></Spacer>
+
+            </Grid>
+            <Grid xs={4}>
+                <Tooltip content={i + 11 <= data.length ? i + 11 : ""}>
+                    {i + 11 <= data.length ? <Card variant="bordered" css={{
+                        width: "15px",
+                        height: "15px",
+                        backgroundColor: data[i+11].time === 0 ? "#000" : data[i+11].time > 60 ? "#4F7942 " : data[i+11].time > 30 ? "#50C878" : "#AFE1AF"
+                    }}></Card> : ""}
+                </Tooltip>
+
+
+            </Grid>
+            <Grid xs={4}>
+
+
+                <Tooltip content={i + 22 <= data.length ? i + 22 : ""}>
+                    {/*<Card variant="bordered" css={{ width: "15px",height:"15px", backgroundColor:data[i].time>60?"#4F7942 ":data[i].time>30?"#50C878":"#AFE1AF"}}></Card>*/}
+                    {i + 22 <= data.length ? <Card variant="bordered" css={{
+                        width: "15px",
+                        height: "15px",
+                        backgroundColor: data[i+22].time === 0 ? "#000" : data[i+22].time > 60 ? "#4F7942 " : data[i+22].time > 30 ? "#50C878" : "#AFE1AF"
+                    }}></Card> : ""}
+                </Tooltip>
+                <Spacer y={1}></Spacer>
+
+
+            </Grid>
+
+        </Grid.Container>
+    )
 
 
 }
 
 
-
-export  default ConsolidatedActivityDashboard
+export default ConsolidatedActivity
