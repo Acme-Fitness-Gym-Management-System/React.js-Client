@@ -26,41 +26,44 @@ const WorkoutDashboard = (props) => {
             d = value
         });
         d = d.split(" ")[0]
-        const user = JSON.parse(sessionStorage.user)
-        const data = await axios.get(`http://0.0.0.0:8080/getPastWorkoutData?days=${d}&userid=${user.id}`);
-
-
-        // Done
-        // required data format
-        /**
-         * [
-         *   {
-         *     "devicetype": "Thread Mill",
-         *     "totaltimeseconds": 5100
-         *   },
-         *   {
-         *     "devicetype": "cycling",
-         *     "totaltimeseconds": 5100
-         *   },
-         *   {
-         *     "devicetype": "stair machine",
-         *     "totaltimeseconds": 3600
-         *   },
-         *   {
-         *     "devicetype": "weight training",
-         *     "totaltimeseconds": 2700
-         *   }
-         * ]
-         */
-
-
+         const user = JSON.parse(sessionStorage.user)
+         const data = await axios.get(`http://0.0.0.0:8080/getPastWorkoutData?interval=${d}&userid=${user.id}`);
+        //
+        //
+        // // Done
+        // // required data format
+        // /**
+        //  * [
+        //  *   {
+        //  *     "devicetype": "Thread Mill",
+        //  *     "totaltimeseconds": 5100
+        //  *   },
+        //  *   {
+        //  *     "devicetype": "cycling",
+        //  *     "totaltimeseconds": 5100
+        //  *   },
+        //  *   {
+        //  *     "devicetype": "stair machine",
+        //  *     "totaltimeseconds": 3600
+        //  *   },
+        //  *   {
+        //  *     "devicetype": "weight training",
+        //  *     "totaltimeseconds": 2700
+        //  *   }
+        //  * ]
+        //  */
+        //
+        //
+        //
+        //
+        //
         setData((prevData)=>{
             return {
                 ...prevData,
-                treadmill: data[0],
-                cycling: data[1],
-                stairMachine: data[2],
-                weightTrainning: data[3]
+                treadmill:0,
+                cycling: 0,
+                stairMachine: 0,
+                weightTrainning: 0
             }
         });
     };
