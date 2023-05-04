@@ -6,38 +6,34 @@ import WorkoutDashboard from "./workoutTracking/WorkoutDashboard";
 import UpcomingClassCard from "./Classes/UpcomingClassCard";
 import ConsolidatedActivity from "./ConsolidatedWorkoutActivity/ConsolidatedActivity";
 import EnrollClass from "./Classes/EnrollClass/EnrollClass";
+import axios from "axios";
 
 
 const Employee = () => {
 
-    //todo revert
-    // const user = JSON.parse(sessionStorage.user)
-    //
-    // // fetch customer name
-    // const customerName = user.name
 
-    const customerName = "chiruhas"
 
-    const [activityData, setActivityData] = useState([[], [], [], [], [], [], [], [], [], [], [], []])
+    const user = JSON.parse(sessionStorage.user);
+    const customerName = user.name
+    console.log(user)
 
-    //
 
     // fetching activity data
     const getData = async () => {
 
-        //TODO:: add userid below
-        const { data } = await axios.get(`http://0.0.0.0:8080/getDayWiseUserActivity?userid={}`);
+        const { data } = await axios.get(`http://0.0.0.0:8080/getDayWiseUserActivity?userid=${user.id}`);
 
         // todo figure out how to properly update state.
         let temp = [];
         data.forEach((el, index) => {
             temp.push([...el.activity]);
         })
-        console.log(JSON.stringify(temp));
+       // console.log(JSON.stringify(temp));
 
-        setActivityData((old) => {
-            return temp
-        });
+        setActivityData(temp);
+
+
+
 
 
     };
@@ -49,7 +45,7 @@ const Employee = () => {
     return <>
         {/*todo*/}
 
-        <CustomerNavbar name="Chiruhas Bobbadi"/>
+        <CustomerNavbar name={customerName}/>
 
 
         <Grid.Container>
