@@ -1,12 +1,12 @@
-import {Button, Dropdown, Grid, Loading, Text} from "@nextui-org/react";
+import {Dropdown, Grid} from "@nextui-org/react";
 import EnrollClassGrid from "./EnrollClassGrid";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 
-const EnrollClass = (props)=>{
+const EnrollClass = (props) => {
 
-const days=[{key:"Monday"},{key:"Tuesday"},{key:"Wednesday"},{key:"Thursday"},{key:"Friday"},{key:"Saturday"},{key:"Sunday"}]
+    const days=[{key:"Monday"},{key:"Tuesday"},{key:"Wednesday"},{key:"Thursday"},{key:"Friday"},{key:"Saturday"},{key:"Sunday"}]
 
 
     // hardcoded these locations for now
@@ -20,20 +20,26 @@ const days=[{key:"Monday"},{key:"Tuesday"},{key:"Wednesday"},{key:"Thursday"},{k
 
     const [selected, setSelected] = React.useState(new Set(["Sunday"]));
 
-    const selectedValue = React.useMemo(
-        () => Array.from(selected).join(", ").replaceAll("_", " "),
-        [selected]
-    );
+    const [selectedDay, setSelectedDay] = useState("Sunday");
 
     const [location, setLocation] = React.useState(new Set(["San Francisco"]));
 
-    const locationValue = React.useMemo(
-        () => Array.from(location).join(", ").replaceAll("_", " "),
-        [location]
-    );
+    const [selectedLocation, setSelectedLocation] = useState("san fransico");
 
 
 
+
+    const setDayState = async (e) => {
+        console.log(e);
+        try {
+
+        } catch (e) {
+            console.log(e);
+        }
+
+
+        await getData()
+    }
 
 
     // fetching activity data
@@ -49,15 +55,13 @@ const days=[{key:"Monday"},{key:"Tuesday"},{key:"Wednesday"},{key:"Thursday"},{k
             l = value
         });
 
-        let dp = locations.filter((el)=>{
-
-            return el.key===l
+        // fetching the value associated with the location
+        let dp = locations.filter((el) => {
+            return el.key === l
         })
         const locValue = dp[0].value
 
-        console.log(locValue);
-
-         const { data } = await axios.get(`http://0.0.0.0:8080/getClasses?day=${d}&location=${locValue}`);
+        const { data } = await axios.get(`http://0.0.0.0:8080/getClasses?day=${d}&location=${locValue}`);
 
         setData(data);
     };
@@ -66,22 +70,26 @@ const days=[{key:"Monday"},{key:"Tuesday"},{key:"Wednesday"},{key:"Thursday"},{k
         getData();
     }, []);
 
+    //const [dayState, setDayState] = useState("Sunday")
 
 
     // this is the data at a given day and a location
     // once the user changes any of that a new api call will be made and data will be updated
-const [data,setData] = useState([])
+    const [data, setData] = useState([])
 
     // expected data is an array of array of objecys
 
     //[[],[],[].....] => 0th index array consists the data of all classes on monday.
 
-    return <Grid.Container >
+    // const el = loading ? <Button type="submit"><Loading color='success'/></Button> :
+    //     <Button type="submit">Submit</Button>
+
+    return <Grid.Container>
         <Grid xs={8}></Grid>
         <Grid xs={2}>
             <Dropdown name="day">
                 <Dropdown.Button flat color="secondary" css={{tt: "capitalize"}} name='day'>
-                    {selectedValue}
+                    {selectedDay}
                 </Dropdown.Button>
                 <Dropdown.Menu
                     aria-label="Single selection actions"
@@ -89,8 +97,26 @@ const [data,setData] = useState([])
                     disallowEmptySelection
                     selectionMode="single"
                     selectedKeys={selected}
-                    onSelectionChange={setSelected}
                     items={days}
+
+                     /*i am tracking 2 states, 1 state for the currently selected value and another state for storing the currently selected value that is stored in the format that is appropriate for the dropdown, since having a single value in the state doesn't work, so i am storing 2 states for 1 dropdown.*/
+
+                    onSelectionChange={(e) => {
+
+                        setSelected((currentState) => {
+                            let d = ""
+                            e.forEach((value) => {
+                                d = value
+                            });
+                            currentState.clear()
+                            currentState.add(d)
+                            setSelectedDay(d)
+                            return currentState
+                        })
+
+                        getData()
+                    }
+                    }
                 >
 
                     {(item) => (
@@ -104,7 +130,7 @@ const [data,setData] = useState([])
         <Grid xs={2}>
             <Dropdown name="location">
                 <Dropdown.Button flat color="secondary" css={{tt: "capitalize"}} name='location' required>
-                    {locationValue}
+                    {selectedLocation}
                 </Dropdown.Button>
                 <Dropdown.Menu
                     aria-label="Single selection actions"
@@ -112,7 +138,21 @@ const [data,setData] = useState([])
                     disallowEmptySelection
                     selectionMode="single"
                     selectedKeys={location}
-                    onSelectionChange={setLocation}
+                    onSelectionChange={(e) => {
+
+                        setLocation((currentState) => {
+                            let d = ""
+                            e.forEach((value) => {
+                                d = value
+                            });
+                            currentState.clear()
+                            currentState.add(d)
+                            setSelectedLocation(d)
+                            return currentState
+                        })
+
+                        getData()
+                    }}
                     items={locations}
 
                 >
@@ -127,7 +167,7 @@ const [data,setData] = useState([])
         </Grid>
 
         <Grid xs={12}>
-            <EnrollClassGrid data={data} />
+            <EnrollClassGrid data={data}/>
         </Grid>
 
     </Grid.Container>

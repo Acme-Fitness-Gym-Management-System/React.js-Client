@@ -6,11 +6,7 @@ const WorkoutDashboard = (props) => {
 
     const days = [{key:"1 day"},{key:"7 days"},{key:"30 days"},{key:"60 days"},{key : "90 days"}];
     const [day, setDay] = React.useState(new Set(["1 day"]));
-
-    const dayValue = React.useMemo(
-        () => Array.from(day).join(", ").replaceAll("_", " "),
-        [day]
-    );
+    const [selectedDay, setSelectedDay] = React.useState("1 day");
 
 
 
@@ -23,33 +19,54 @@ const WorkoutDashboard = (props) => {
 
 
     const getData = async () => {
-        //todo
+
 
         let d=""
         day.forEach((value) =>{
             d = value
         });
         d = d.split(" ")[0]
+        const user = JSON.parse(sessionStorage.user)
+        const data = await axios.get(`http://0.0.0.0:8080/getPastWorkoutData?days=${d}&userid=${user.id}`);
 
 
-        const { data } = await axios.get(`http://0.0.0.0:8080/getPastWorkoutData?days=${d}`);
-
-        // todo
+        // Done
         // required data format
         /**
-         * {
-         *         treadmill: "x",
-         *         cycling: "y",
-         *         stairMachine: "z",
-         *         weightTrainning: "a"
-         *     }
+         * [
+         *   {
+         *     "devicetype": "Thread Mill",
+         *     "totaltimeseconds": 5100
+         *   },
+         *   {
+         *     "devicetype": "cycling",
+         *     "totaltimeseconds": 5100
+         *   },
+         *   {
+         *     "devicetype": "stair machine",
+         *     "totaltimeseconds": 3600
+         *   },
+         *   {
+         *     "devicetype": "weight training",
+         *     "totaltimeseconds": 2700
+         *   }
+         * ]
          */
 
-        //setActivityData(data);
+
+        setData((prevData)=>{
+            return {
+                ...prevData,
+                treadmill: data[0],
+                cycling: data[1],
+                stairMachine: data[2],
+                weightTrainning: data[3]
+            }
+        });
     };
 
     useEffect(() => {
-    //todo
+
         getData()
     });
 
@@ -61,7 +78,7 @@ const WorkoutDashboard = (props) => {
         <Grid xs={12} justify="center">
             <Dropdown name="days">
                 <Dropdown.Button flat color="secondary" css={{tt: "capitalize"}} name='workoutType' required>
-                    {day}
+                    {selectedDay}
                 </Dropdown.Button>
                 <Dropdown.Menu
                     aria-label="Single selection actions"
@@ -69,8 +86,23 @@ const WorkoutDashboard = (props) => {
                     disallowEmptySelection
                     selectionMode="single"
                     selectedKeys={days}
-                    onSelectionChange={setDay}
                     items={days}
+                    onSelectionChange={(e) => {
+
+                        setDay((currentState) => {
+                            let d = ""
+                            e.forEach((value) => {
+                                d = value
+                            });
+                            currentState.clear()
+                            currentState.add(d)
+                            setSelectedDay(d)
+                            return currentState
+                        })
+
+                        getData()
+                    }
+                    }
 
                 >
 
