@@ -18,9 +18,7 @@ function EmployeeNavbar(props){
         </Navbar.Brand>
 
         <Navbar.Content hideIn="xs" variant="highlight-rounded">
-            <Navbar.Link href="/employee/analytics">Analytics</Navbar.Link>
-            <Navbar.Link href="/employee/class">Class Management</Navbar.Link>
-            <Navbar.Link href="/employee/user">User Management</Navbar.Link>`
+            <Navbar.Link href="/employee">Analytics</Navbar.Link>
 
         </Navbar.Content>
 

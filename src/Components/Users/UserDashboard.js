@@ -9,7 +9,7 @@ import EnrollClass from "./Classes/EnrollClass/EnrollClass";
 import axios from "axios";
 
 
-const Employee = () => {
+const UserDashboard = () => {
 
 
 
@@ -266,4 +266,4 @@ const Employee = () => {
 }
 
 
-export default Employee;
+export default UserDashboard;
