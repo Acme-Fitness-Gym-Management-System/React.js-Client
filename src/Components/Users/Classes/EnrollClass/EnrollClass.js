@@ -24,7 +24,7 @@ const EnrollClass = (props) => {
 
     const [location, setLocation] = React.useState(new Set(["San Francisco"]));
 
-    const [selectedLocation, setSelectedLocation] = useState("san fransico");
+    const [selectedLocation, setSelectedLocation] = useState("San Fransico");
 
 
 
