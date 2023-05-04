@@ -3,7 +3,7 @@ import {Card, Grid, Spacer, Tooltip} from "@nextui-org/react";
 
 const ConsolidatedActivity = (props) => {
 
-    console.log(props.data);
+    // console.log(props.data);
     const [data, setData] = useState([]);
 
 
@@ -33,9 +33,10 @@ const ConsolidatedActivity = (props) => {
 
     })
 
-
-
-    return data.map((d, i) => <Grid.Container key={i} justify="center">
+    let el =" "
+    console.log(data)
+    for (let i = 0; i < 11 && data.length>0 ; i++) {
+        el+= <Grid.Container key={i} justify="center">
 
             <Grid xs={4}>
 
@@ -51,12 +52,12 @@ const ConsolidatedActivity = (props) => {
 
             </Grid>
             <Grid xs={4}>
-                <Tooltip content={i + 11 <= data.length ? i + 11 : ""}>
-                    {i + 11 <= data.length ? <Card variant="bordered" css={{
+                <Tooltip content={i+12}>
+                     <Card variant="bordered" css={{
                         width: "15px",
                         height: "15px",
                         backgroundColor: data[i+11].time === 0 ? "#000" : data[i+11].time > 60 ? "#4F7942 " : data[i+11].time > 30 ? "#50C878" : "#AFE1AF"
-                    }}></Card> : ""}
+                    }}></Card>
                 </Tooltip>
 
 
@@ -64,9 +65,9 @@ const ConsolidatedActivity = (props) => {
             <Grid xs={4}>
 
 
-                <Tooltip content={i + 22 <= data.length ? i + 22 : ""}>
+                <Tooltip content={i + 22 < data.length ? i + 23 : ""}>
                     {/*<Card variant="bordered" css={{ width: "15px",height:"15px", backgroundColor:data[i].time>60?"#4F7942 ":data[i].time>30?"#50C878":"#AFE1AF"}}></Card>*/}
-                    {i + 22 <= data.length ? <Card variant="bordered" css={{
+                    {i + 22 < data.length ? <Card variant="bordered" css={{
                         width: "15px",
                         height: "15px",
                         backgroundColor: data[i+22].time === 0 ? "#000" : data[i+22].time > 60 ? "#4F7942 " : data[i+22].time > 30 ? "#50C878" : "#AFE1AF"
@@ -78,7 +79,9 @@ const ConsolidatedActivity = (props) => {
             </Grid>
 
         </Grid.Container>
-    )
+    }
+
+    return {el}
 
 
 }

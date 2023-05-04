@@ -27,7 +27,7 @@ const WorkoutDashboard = (props) => {
         });
         d = d.split(" ")[0]
         const user = JSON.parse(sessionStorage.user)
-        const data = await axios.get(`http://0.0.0.0:8080/getPastWorkoutData?days=${d}&userid=${user.id}`);
+        const data = await axios.get(`http://0.0.0.0:8080/getPastWorkoutData?interval=${d}&userid=${user.id}`);
 
 
         // Done
@@ -52,15 +52,14 @@ const WorkoutDashboard = (props) => {
          *   }
          * ]
          */
-
-
+        console.log(data);
         setData((prevData)=>{
             return {
                 ...prevData,
-                treadmill: data[0],
-                cycling: data[1],
-                stairMachine: data[2],
-                weightTrainning: data[3]
+                treadmill:  0,
+                cycling:  0,
+                stairMachine: 0,
+                weightTrainning:  0
             }
         });
     };

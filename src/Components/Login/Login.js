@@ -24,10 +24,10 @@ export default () => {
 
     const [message, setMessage] = useState(errorMessage);
 
-    const [email, setEmail] = useState('');
+    const [email, setEmail] = useState('def@gmail.com');
     const [emailError, setEmailError] = useState('');
 
-    const [password, setPassword] = useState('');
+    const [password, setPassword] = useState('Password123');
     const [passwordError, setPasswordError] = useState('');
     const [successMsg, setSuccessMsg] = useState('');
 
@@ -85,15 +85,16 @@ export default () => {
         });
 
         const data = response.data;
-
-        if(data.error==="Success"){
+        console.log(data);
+        if(data.error.length===0){
             // go to home
+            console.log("Fk");
             var details = response.data.object;
             details = JSON.parse(details);
-
+            console.log(details);
 
             if(data.type==="employee") {
-                const d = details.object;
+                const d = details;
 
                 const el={
                     id:d.id,
@@ -108,16 +109,18 @@ export default () => {
                 navigate("/employee");
             }
             else{
-                const d = details.object;
+                const d = details;
 
                 const el={
                     id:d.id,
                     name:d.name,
                     email:d.email
                 }
+                console.log(el);
+
                 sessionStorage.setItem('user', JSON.stringify(el));
 
-                navigate("/user");
+                navigate("/dashboard");
             }
 
 
