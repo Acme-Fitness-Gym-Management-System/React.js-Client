@@ -17,6 +17,8 @@ const UserDashboard = () => {
     const customerName = user.name
     console.log(user)
 
+    const [activityData, setActivityData] = useState([[], [], [], [], [], [], [], [], [], [], [], []])
+
 
     // fetching activity data
     const getData = async () => {
