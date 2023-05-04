@@ -8,7 +8,7 @@ import ConsolidatedActivity from "./ConsolidatedWorkoutActivity/ConsolidatedActi
 import EnrollClass from "./Classes/EnrollClass/EnrollClass";
 
 
-const Employee = () => {
+const UserDashboard = () => {
 
     //todo revert
     // const user = JSON.parse(sessionStorage.user)
@@ -270,4 +270,4 @@ const Employee = () => {
 }
 
 
-export default Employee;
+export default UserDashboard;

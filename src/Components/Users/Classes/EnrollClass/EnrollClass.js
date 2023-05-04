@@ -6,11 +6,11 @@ import axios from "axios";
 
 const EnrollClass = (props) => {
 
-    const days = [{key: "Sunday"}, {key: "Monday"}, {key: "Tuesday"}, {key: "Wednesday"}, {key: "Thursday"}, {key: "Friday"}, {key: "Saturday"}]
+    const days=[{key:"Monday"},{key:"Tuesday"},{key:"Wednesday"},{key:"Thursday"},{key:"Friday"},{key:"Saturday"},{key:"Sunday"}]
 
 
     // hardcoded these locations for now
-    const locations = [{key: "san fransico", value: 1}, {
+    const locations = [{key: "San Francisco", value: 1}, {
         key: "Sacramento",
         value: 2
     }, {key: "Milpitas", value: 3}, {key: "Sunnyvale", value: 4}, {key: "Santa Clara", value: 5}, {
@@ -22,7 +22,7 @@ const EnrollClass = (props) => {
 
     const [selectedDay, setSelectedDay] = useState("Sunday");
 
-    const [location, setLocation] = React.useState(new Set(["san fransico"]));
+    const [location, setLocation] = React.useState(new Set(["San Francisco"]));
 
     const [selectedLocation, setSelectedLocation] = useState("san fransico");
 
