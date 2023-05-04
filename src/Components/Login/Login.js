@@ -29,7 +29,6 @@ export default () => {
     const [successMsg, setSuccessMsg] = useState('');
 
 const submitHandler = async()=>{
-    // console.log("entered submit handler");
     validateEmail(email);
     validatePassword(password);
     if(await authenticate(email,password))

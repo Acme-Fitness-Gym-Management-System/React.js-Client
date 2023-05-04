@@ -4,6 +4,7 @@ import {createTheme, NextUIProvider} from '@nextui-org/react';
 import EmployeeDashboard from "./Components/Employee/EmployeeDashboard";
 import CustomerDashboard from "./Components/Users/UserDashboard";
 import Login from "./Components/Login/Login";
+import UserDashboard from "./Components/Users/UserDashboard";
 
 
 const theme = createTheme({
@@ -50,7 +51,7 @@ function App() {
 
                     <Route path='/employee' element={<EmployeeDashboard/>}/>
 
-                    <Route path='/user' element={<CustomerDashboard/>}/>
+                    <Route path='/user' element={<UserDashboard/>}/>
 
                     {/*<Route path='/home' element={<Landing/>}/>*/}
 
