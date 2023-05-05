@@ -1,14 +1,17 @@
-import {Button, Card, Col, Grid, Loading, Text} from "@nextui-org/react";
+import {Button, Card, Grid, Loading, Text} from "@nextui-org/react";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 
-const EnrollClassCard = (props)=>{
+const EnrollClassCard = (props) => {
 
 
     const [data, setData] = useState(props.data);
 
-    const clickHandler = async ()=>{
+    let el=''
+
+
+    const clickHandler = async () => {
 
         // props.id is the id reference of the class
         // todo handle what happens once a user clicks enroll
@@ -20,11 +23,10 @@ const EnrollClassCard = (props)=>{
         //todo
         const user = JSON.parse(sessionStorage.user)
 
-        const data ={
-            classid:props.id,
-            userid:user.userid
+        const data = {
+            courseid: props.id,
+            userid: user.id
         }
-
 
 
         setLoading(true);
@@ -35,33 +37,51 @@ const EnrollClassCard = (props)=>{
            await axios.post("http://0.0.0.0:8080/classCatalogue", JSON.stringify(data) )
 
 
+        el =  <Button size="xs" style={{
+            position: 'absolute',
+            right: 0,
+            bottom: 0
+        }} type="submit" color="success" disabled>Enrolled</Button>;
+
 
         }catch (e){
+            console.log(e);
             alert("OOPs something happened");
         }
-
         setLoading(false);
 
-        setEnrolled(true);
+
+
 
     }
-
-
 
     const [loading, setLoading] = useState(false);
     const [enrolled, setEnrolled] = useState(false)
 
-    const el = loading?<Button size="xs" type="submit" style={{position: 'absolute',
-        right:0,
-        bottom:0}} onClick={clickHandler}> <Loading color='success'/></Button> : !enrolled ? <Button size="xs" type="submit" style={{position: 'absolute',
-            right:0,
-            bottom:0}} onClick={clickHandler}>Enroll</Button> :
-        <Button size="xs" style={{position: 'absolute',
-            right:0,
-            bottom:0}}  type="submit" color="success" disabled>Enrolled</Button>
+    // if (data.enrollment_status === "Enrolled") {
+    //     setEnrolled(true);
+    // } else {
+    //     setEnrolled(false);
+    // }
 
-    return   <Card isHoverable >
-        <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
+     el = loading ? <Button size="xs" type="submit" style={{
+        position: 'absolute',
+        right: 0,
+        bottom: 0
+    }} onClick={clickHandler}> <Loading color='success'/></Button> : data.enrollment_status !== "Enrolled" ?
+        <Button size="xs" type="submit" style={{
+            position: 'absolute',
+            right: 0,
+            bottom: 0
+        }} onClick={clickHandler}>Enroll</Button> :
+        <Button size="xs" style={{
+            position: 'absolute',
+            right: 0,
+            bottom: 0
+        }} type="submit" color="success" disabled>Enrolled</Button>
+
+    return <Card isHoverable>
+        <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
 
             {/*<Col>*/}
 
@@ -112,17 +132,17 @@ const EnrollClassCard = (props)=>{
                 {/*row 3*/}
                 <Grid xs={4}>
                     <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
-                        {data.starttime.split("T")[1].substring(0,5)}
+                        {data.starttime.split("T")[1].substring(0, 5)}
                     </Text>
                 </Grid>
                 <Grid xs={1}>
-                    <Text size={18} weight="bold"  color="#ffffffAA">
+                    <Text size={18} weight="bold" color="#ffffffAA">
                         to
                     </Text>
                 </Grid>
                 <Grid xs={4}>
                     <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
-                        {data.endtime.split("T")[1].substring(0,5)}
+                        {data.endtime.split("T")[1].substring(0, 5)}
                     </Text>
                 </Grid>
                 <Grid xs={3}>
@@ -139,8 +159,6 @@ const EnrollClassCard = (props)=>{
                 </Grid>
 
 
-
-
                 <Grid xs={4}>
 
                 </Grid>
@@ -150,8 +168,6 @@ const EnrollClassCard = (props)=>{
                 <Grid xs={4}>
 
                 </Grid>
-
-
 
 
             </Grid.Container>
