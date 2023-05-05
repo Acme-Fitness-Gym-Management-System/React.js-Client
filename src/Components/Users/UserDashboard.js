@@ -34,14 +34,10 @@ const UserDashboard = () => {
 
         setActivityData(temp);
 
-
-
-
-
     };
     useEffect(() => {
         getData();
-    }, []);
+    },[]);
 
 
     return <>

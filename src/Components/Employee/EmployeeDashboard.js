@@ -1,6 +1,6 @@
 import {Card, Grid, Spacer, Text} from "@nextui-org/react";
 import EmployeeNavbar from "./Navbar/EmployeeNavbar";
-import Analytics from "./Sections/Analytics";
+import Analytics from "./Sections/analytics/Analytics";
 import ClassManagement from "./Sections/ClassManagement";
 import UserManagement from "./Sections/UserManagement";
 import ClassInfo from "./viewClasses/ClassInfo";
@@ -11,18 +11,20 @@ import {useNavigate} from "react-router-dom";
 
 const EmployeeDashboard = () => {
 
-    const navigate = useNavigate();
-    let employee  = sessionStorage.employee
-    console.log(employee);
+    // const navigate = useNavigate();
+    // let employee  = sessionStorage.employee
+    // console.log(employee);
+    //
+    // if(!employee){
+    //     console.log("inside");
+    //     navigate("/login");
+    // }
+    //
+    // employee = JSON.parse(employee)
 
-    if(!employee){
-        console.log("inside");
-        navigate("/login");
+    const employee={
+        name:"Chiruhas"
     }
-
-    console.log("hi ");
-
-    employee = JSON.parse(employee)
 
     return <>
         {/*todo*/}
@@ -41,7 +43,7 @@ const EmployeeDashboard = () => {
 
         </Grid.Container>
 
-        <ClassInfo/>
+        {/*<ClassInfo/>*/}
 
 
 
