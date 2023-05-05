@@ -17,7 +17,7 @@ const [data,setdata] = useState([
 
         {data.map((d,i)=> <Grid xs={3} key={i}>
 
-          <EnrollClassCard data={d} id={"hello world "+i}/>
+          <EnrollClassCard data={d} id={d.class_id}/>
 
         </Grid>)}
 

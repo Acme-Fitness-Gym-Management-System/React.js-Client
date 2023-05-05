@@ -1,4 +1,4 @@
-import {Button, Card, Col, Loading, Text} from "@nextui-org/react";
+import {Button, Card, Col, Grid, Loading, Text} from "@nextui-org/react";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 
@@ -18,11 +18,11 @@ const EnrollClassCard = (props)=>{
         // id of the class that is clicked will be availale in props.id.
 
         //todo
-        //const user = JSON.parse(sessionStorage.user)
+        const user = JSON.parse(sessionStorage.user)
 
         const data ={
             classid:props.id,
-            userid:""
+            userid:user.userid
         }
 
 
@@ -66,16 +66,108 @@ const EnrollClassCard = (props)=>{
             <Col>
 
                 <Text h2 color="white">
-                    {data.className}
+                    {data.class_name}
                 </Text>
-                <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
-                    {data.time}
-                </Text>
+
                 <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
                     {data.capacity} people
                 </Text>
                 {el}
             </Col>
+
+            <Grid.Container>
+                <Grid xs={8}>
+                    <Text h2 color="white">
+                        {data.class_name}
+                    </Text>
+                </Grid>
+                <Grid xs={4}>
+                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
+                        {data.cost}
+                    </Text>
+                </Grid>
+
+                {/*row 2*/}
+                <Grid xs={4}>
+                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
+                        {data.startdate}
+                    </Text>
+                </Grid>
+                <Grid xs={1}>
+                    <Text size={18} weight="bold" color="#ffffffAA">
+                        to
+                    </Text>
+                </Grid>
+                <Grid xs={4}>
+                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
+                        {data.enddate}
+                    </Text>
+                </Grid>
+                <Grid xs={3}>
+                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
+
+                    </Text>
+                </Grid>
+
+                {/*row 3*/}
+                <Grid xs={4}>
+                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
+                        {data.starttime}
+                    </Text>
+                </Grid>
+                <Grid xs={1}>
+                    <Text size={18} weight="bold"  color="#ffffffAA">
+                        to
+                    </Text>
+                </Grid>
+                <Grid xs={4}>
+                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
+                        {data.endtime}
+                    </Text>
+                </Grid>
+                <Grid xs={3}>
+                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
+                        {data.cost}
+                    </Text>
+                </Grid>
+
+                {/*row 4*/}
+                <Grid xs={4}>
+                    <Text size={18} weight="bold"  color="#ffffffAA">
+                        {data.starttime}
+                    </Text>
+                </Grid>
+                <Grid xs={1}>
+                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
+                        to
+                    </Text>
+                </Grid>
+                <Grid xs={4}>
+                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
+                        {data.endtime}
+                    </Text>
+                </Grid>
+                <Grid xs={3}>
+                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
+                        {data.cost}
+                    </Text>
+                </Grid>
+
+
+                <Grid xs={4}>
+
+                </Grid>
+                <Grid xs={4}>
+                    {el}
+                </Grid>
+                <Grid xs={4}>
+
+                </Grid>
+
+
+
+
+            </Grid.Container>
 
         </Card.Header>
         <Card.Image
