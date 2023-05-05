@@ -1,10 +1,11 @@
 import {Button, Card, Dropdown, Grid, Input, Loading, Text} from "@nextui-org/react";
 import React, {useState} from "react";
+import axios from "axios";
 
-
+//TODO :: refresh Record activity form after submiting
 const AddWorkout = ()=>{
 
-    const workouts = [{key:"Treadmill"},{key:"Cycling"},{key:"Stair Machine"},{key:"Weight Training"}];
+    const workouts = [{key:"Treadmill",value:1},{key:"Cycling",value:2},{key:"Stair Machine",value:3},{key:"Weight Training",value:4}];
     const [workout, setWorkout] = React.useState(new Set(["Choose a Workout"]));
 
     const workoutValue = React.useMemo(
@@ -16,23 +17,31 @@ const AddWorkout = ()=>{
     const el = loading ? <Button type="submit"><Loading color='success'/></Button> :
         <Button type="submit">Submit</Button>
 
-
+    const user = JSON.parse(sessionStorage.user)
 
 
     const formSubmitHandler = (event)=>{
         event.preventDefault()
 
 
-        const type = event.target.workoutType.value
+        const type = event.target.workoutType.children[1].innerHTML
+
+        console.log(type);
 
         if(type==="Choose a Workout")
-            alert("Please choose a workout type");
+            alert("Choose a workout type");
         else{
+
+
+            let dp = workouts.filter((el) => {
+                return el.key === type
+            })
+
             const data = {
-                userId:"",
-                workoutType:type,
-                startTime:event.target.startTime.value,
-                endTime:event.target.endTime.value
+                userid:user.id,
+                deviceid:dp[0].value,
+                start:event.target.startTime.value,
+                end:event.target.endTime.value
             }
             console.log(data);
             apiCall(data)
@@ -40,9 +49,25 @@ const AddWorkout = ()=>{
     }
 
 
-    const apiCall = (data)=>{
+    // http://0.0.0.0:8080/userActivity (post)
+    const apiCall = async (data)=>{
 
 
+        setLoading(true);
+
+        try{
+            console.log(JSON.stringify(data));
+            await axios.post("http://0.0.0.0:8080/userActivity", JSON.stringify(data) )
+            alert("Data Submitted sucessfully")
+
+
+
+        }catch (e){
+            console.log(e);
+            alert("OOps something happened")
+        }
+
+        setLoading(false);
 
     }
 
