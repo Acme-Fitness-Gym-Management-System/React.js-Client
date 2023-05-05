@@ -83,18 +83,6 @@ const EnrollClassCard = (props) => {
     return <Card isHoverable>
         <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
 
-            {/*<Col>*/}
-
-            {/*    <Text h2 color="white">*/}
-            {/*        {data.class_name}*/}
-            {/*    </Text>*/}
-
-            {/*    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">*/}
-            {/*        {data.capacity} people*/}
-            {/*    </Text>*/}
-            {/*    {el}*/}
-            {/*</Col>*/}
-
             <Grid.Container>
                 <Grid xs={8}>
                     <Text h2 color="white">

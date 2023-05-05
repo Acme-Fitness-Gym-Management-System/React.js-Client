@@ -1,4 +1,4 @@
-import {Card, Col, Text} from "@nextui-org/react";
+import {Card, Col, Grid, Text} from "@nextui-org/react";
 import React from "react";
 
 
@@ -10,18 +10,70 @@ const ViewClassCard = (props)=>{
     return  <Card isHoverable >
         <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
 
-            <Col>
+            <Grid.Container>
+                <Grid xs={8}>
+                    <Text h2 color="white">
+                        {data.class_name}
+                    </Text>
+                </Grid>
+                <Grid xs={4}>
+                    <Text h3 weight="bold" transform="uppercase" color="#ffffffAA">
+                        {data.cost}$
+                    </Text>
+                </Grid>
 
-                <Text h2 color="white">
-                    {data.className}
-                </Text>
-                <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
-                    {data.time}
-                </Text>
-                <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
-                    {data.capacity} people
-                </Text>
-            </Col>
+                {/*row 2*/}
+                <Grid xs={4}>
+                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
+                        {data.startdate.split("T")[0]}
+                    </Text>
+                </Grid>
+                <Grid xs={1}>
+                    <Text size={18} weight="bold" color="#ffffffAA">
+                        to
+                    </Text>
+                </Grid>
+                <Grid xs={4}>
+                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
+                        {data.enddate.split("T")[0]}
+                    </Text>
+                </Grid>
+                <Grid xs={3}>
+                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
+
+                    </Text>
+                </Grid>
+
+                {/*row 3*/}
+                <Grid xs={4}>
+                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
+                        {data.starttime.split("T")[1].substring(0, 5)}
+                    </Text>
+                </Grid>
+                <Grid xs={1}>
+                    <Text size={18} weight="bold" color="#ffffffAA">
+                        to
+                    </Text>
+                </Grid>
+                <Grid xs={4}>
+                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
+                        {data.endtime.split("T")[1].substring(0, 5)}
+                    </Text>
+                </Grid>
+                <Grid xs={3}>
+                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
+
+                    </Text>
+                </Grid>
+
+                {/*row 4*/}
+                <Grid xs={12}>
+                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
+                        by {data.instructorname}
+                    </Text>
+                </Grid>
+
+            </Grid.Container>
 
         </Card.Header>
         <Card.Image
