@@ -4,12 +4,25 @@ import Analytics from "./Sections/Analytics";
 import ClassManagement from "./Sections/ClassManagement";
 import UserManagement from "./Sections/UserManagement";
 import ClassInfo from "./viewClasses/ClassInfo";
+import {useNavigate} from "react-router-dom";
 
 
 
 
 const EmployeeDashboard = () => {
-    const employee  = JSON.parse(sessionStorage.employee)
+
+    const navigate = useNavigate();
+    let employee  = sessionStorage.employee
+    console.log(employee);
+
+    if(!employee){
+        console.log("inside");
+        navigate("/login");
+    }
+
+    console.log("hi ");
+
+    employee = JSON.parse(employee)
 
     return <>
         {/*todo*/}

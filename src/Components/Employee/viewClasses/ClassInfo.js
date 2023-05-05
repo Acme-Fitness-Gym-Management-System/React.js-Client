@@ -28,6 +28,31 @@ const ClassInfo = ()=>{
         selected.forEach((value) =>{
             d = value
         });
+        //Request
+        // http://0.0.0.0:8080/getClassesForEmployee?day=Monday&locationid=1
+        // Output
+        //[
+        //   {
+        //     "class_id": 3,
+        //     "class_name": "dummy ",
+        //     "instructorname": "name123",
+        //     "cost": 10,
+        //     "startdate": "2023-05-04T00:00:00Z",
+        //     "enddate": "2023-05-31T00:00:00Z",
+        //     "starttime": "0000-01-01T09:00:00Z",
+        //     "endtime": "0000-01-01T10:00:00Z"
+        //   },
+        //   {
+        //     "class_id": 1,
+        //     "class_name": "Yoga",
+        //     "instructorname": "inst1",
+        //     "cost": 10,
+        //     "startdate": "2023-06-01T00:00:00Z",
+        //     "enddate": "2023-05-01T00:00:00Z",
+        //     "starttime": "0000-01-01T21:00:00Z",
+        //     "endtime": "0000-01-01T22:00:00Z"
+        //   }
+        // ]
 
         console.log(`http://0.0.0.0:8080/getClassesForEmployee?day=${d}&locationid=${employee.locationid}`);
 

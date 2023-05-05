@@ -55,7 +55,7 @@ function App() {
 
                     {/*<Route path='/home' element={<Landing/>}/>*/}
 
-                    <Route path='/' element={<Login/>}/>
+                    <Route path='/login' element={<Login/>}/>
 
 
 
