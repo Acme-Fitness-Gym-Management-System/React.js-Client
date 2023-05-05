@@ -85,9 +85,9 @@ const CreateClassModal = forwardRef(({}, ref) => {
                 enddate: event.target.endDate.value,
                 starttime: event.target.startTime.value,
                 endtime: event.target.endTime.value,
-                locationid: d, //change to locationid
+                locationid: d[0].value, //change to locationid
                 day: day,
-                cost:event.target.cost.value
+                cost:parseInt(event.target.cost.value)
             }
 
 
@@ -108,6 +108,8 @@ const CreateClassModal = forwardRef(({}, ref) => {
         console.log(JSON.stringify(data));
         try{
             await axios.post('http://0.0.0.0:8080/class', JSON.stringify(data))
+            alert("Data submitted sucessfully");
+            closeHandler()
         }catch (e){
             alert("OOPs something happened");
         }

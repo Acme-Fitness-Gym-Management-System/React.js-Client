@@ -52,7 +52,7 @@ const CreateUserModal = forwardRef(({}, ref) => {
         console.log(JSON.stringify(data))
         try{
 
-           const response =  await axios.post("http://0.0.0.0:8080/userV2", JSON.stringify(data) )
+           const response =  await axios.post("http://0.0.0.0:8080/usersV2", JSON.stringify(data) )
             alert("User data entered sucessfully");
             setAddClassVisible(false);
 

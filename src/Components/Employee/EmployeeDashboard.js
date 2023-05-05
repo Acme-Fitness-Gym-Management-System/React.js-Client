@@ -9,10 +9,12 @@ import ClassInfo from "./viewClasses/ClassInfo";
 
 
 const EmployeeDashboard = () => {
+    const employee  = JSON.parse(sessionStorage.employee)
+
     return <>
         {/*todo*/}
         {/*Fetch user name and pass it down as prop.*/}
-        <EmployeeNavbar name="chiruhas" isActive='analytics'/>
+        <EmployeeNavbar name={employee.name} isActive='analytics'/>
 
 
         <Analytics/>
