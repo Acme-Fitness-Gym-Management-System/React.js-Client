@@ -102,7 +102,7 @@ const authenticate = async(email, pass)=>{
 
             sessionStorage.setItem('user', JSON.stringify(el));
 
-            navigate("/dashboard");
+            navigate("/user");
         }
 
 

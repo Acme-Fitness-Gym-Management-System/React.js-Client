@@ -61,6 +61,20 @@ const EnrollClass = (props) => {
         })
         const locValue = dp[0].value
 
+        //TODO:: Backend API
+        //[
+        //   {
+        //     "class_id": 1,
+        //     "class_name": "Yoga",
+        //     "instructorname": "inst1",
+        //     "cost": 10,
+        //     "startdate": "2023-06-01T00:00:00Z",
+        //     "enddate": "2023-05-01T00:00:00Z",
+        //     "starttime": "0000-01-01T21:00:00Z",
+        //     "endtime": "0000-01-01T22:00:00Z",
+        //     "enrollment_status": "Not Enrolled"
+        //   }
+        // ]
         const { data } = await axios.get(`http://0.0.0.0:8080/getClasses?day=${d}&location=${locValue}`);
 
         setData(data);
