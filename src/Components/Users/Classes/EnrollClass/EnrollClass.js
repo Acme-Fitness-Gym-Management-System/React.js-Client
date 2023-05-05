@@ -5,6 +5,7 @@ import axios from "axios";
 
 
 const EnrollClass = (props) => {
+    let user = JSON.parse(sessionStorage.user)
 
     const days=[{key:"Monday"},{key:"Tuesday"},{key:"Wednesday"},{key:"Thursday"},{key:"Friday"},{key:"Saturday"},{key:"Sunday"}]
 
@@ -75,8 +76,9 @@ const EnrollClass = (props) => {
         //     "enrollment_status": "Not Enrolled"
         //   }
         // ]
-        const { data } = await axios.get(`http://0.0.0.0:8080/getClasses?day=${d}&location=${locValue}`);
 
+        const { data } = await axios.get(`http://0.0.0.0:8080/getClasses?day=${d}&locationid=${locValue}&userid=${user.id}`);
+        console.log(data);
         setData(data);
     };
 

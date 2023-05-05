@@ -63,17 +63,17 @@ const EnrollClassCard = (props)=>{
     return   <Card isHoverable >
         <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
 
-            <Col>
+            {/*<Col>*/}
 
-                <Text h2 color="white">
-                    {data.class_name}
-                </Text>
+            {/*    <Text h2 color="white">*/}
+            {/*        {data.class_name}*/}
+            {/*    </Text>*/}
 
-                <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
-                    {data.capacity} people
-                </Text>
-                {el}
-            </Col>
+            {/*    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">*/}
+            {/*        {data.capacity} people*/}
+            {/*    </Text>*/}
+            {/*    {el}*/}
+            {/*</Col>*/}
 
             <Grid.Container>
                 <Grid xs={8}>
@@ -82,15 +82,15 @@ const EnrollClassCard = (props)=>{
                     </Text>
                 </Grid>
                 <Grid xs={4}>
-                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
-                        {data.cost}
+                    <Text h3 weight="bold" transform="uppercase" color="#ffffffAA">
+                        {data.cost}$
                     </Text>
                 </Grid>
 
                 {/*row 2*/}
                 <Grid xs={4}>
                     <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
-                        {data.startdate}
+                        {data.startdate.split("T")[0]}
                     </Text>
                 </Grid>
                 <Grid xs={1}>
@@ -100,7 +100,7 @@ const EnrollClassCard = (props)=>{
                 </Grid>
                 <Grid xs={4}>
                     <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
-                        {data.enddate}
+                        {data.enddate.split("T")[0]}
                     </Text>
                 </Grid>
                 <Grid xs={3}>
@@ -112,7 +112,7 @@ const EnrollClassCard = (props)=>{
                 {/*row 3*/}
                 <Grid xs={4}>
                     <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
-                        {data.starttime}
+                        {data.starttime.split("T")[1].substring(0,5)}
                     </Text>
                 </Grid>
                 <Grid xs={1}>
@@ -122,36 +122,23 @@ const EnrollClassCard = (props)=>{
                 </Grid>
                 <Grid xs={4}>
                     <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
-                        {data.endtime}
+                        {data.endtime.split("T")[1].substring(0,5)}
                     </Text>
                 </Grid>
                 <Grid xs={3}>
                     <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
-                        {data.cost}
+
                     </Text>
                 </Grid>
 
                 {/*row 4*/}
-                <Grid xs={4}>
-                    <Text size={18} weight="bold"  color="#ffffffAA">
-                        {data.starttime}
-                    </Text>
-                </Grid>
-                <Grid xs={1}>
+                <Grid xs={12}>
                     <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
-                        to
+                        by {data.instructorname}
                     </Text>
                 </Grid>
-                <Grid xs={4}>
-                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
-                        {data.endtime}
-                    </Text>
-                </Grid>
-                <Grid xs={3}>
-                    <Text size={18} weight="bold" transform="uppercase" color="#ffffffAA">
-                        {data.cost}
-                    </Text>
-                </Grid>
+
+
 
 
                 <Grid xs={4}>

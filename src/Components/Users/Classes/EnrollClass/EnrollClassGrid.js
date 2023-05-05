@@ -1,17 +1,21 @@
 import {Button, Card, Col, Grid, Text} from "@nextui-org/react";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import EnrollClassCard from "./EnrollClassCard";
 
 
 const EnrollClassGrid = (props)=>{
 
-const [data,setdata] = useState([
-    {className:"Aerobics",time:"7.00-8.00",capacity:"40",},{className:"Aerobics",time:"7.00-8.00",capacity:"40",}
+const [data,setData] = useState([
+
 ]);
 
+    // {className:"Aerobics",time:"7.00-8.00",capacity:"40",},{className:"Aerobics",time:"7.00-8.00",capacity:"40",}
 
 
 
+    useEffect(()=>{
+        setData(props.data)
+    })
 
     return <Grid.Container gap={2}>
 
