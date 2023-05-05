@@ -17,7 +17,7 @@ const EnrollClass = (props) => {
     }, {key: "Milpitas", value: 3}, {key: "Sunnyvale", value: 4}, {key: "Santa Clara", value: 5}, {
         key: "San Mateo",
         value: 6
-    }];
+    }, {key: "San Jose", value: 7}];
 
     const [selected, setSelected] = React.useState(new Set(["Sunday"]));
 

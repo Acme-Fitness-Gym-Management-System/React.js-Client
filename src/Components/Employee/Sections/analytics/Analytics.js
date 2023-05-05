@@ -164,6 +164,7 @@ import AnalyticsCard from "./AnalyticsCard";
 import {Dropdown, Grid} from "@nextui-org/react";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import WeeklyDayVsClassesLine from "./Line/WeeklyDayVsClassesLine";
 
 const Analytics = () => {
 
@@ -175,6 +176,7 @@ const Analytics = () => {
     const [selected, setSelected] = React.useState(new Set(["Daily"]));
 
     const [selectedChoice, setSelectedChoice] = useState("Daily");
+
 
     const getData = async () => {
 
@@ -214,6 +216,7 @@ const Analytics = () => {
 
 
     return <Grid.Container gap={2}>
+
         <Grid xs={10}></Grid>
         <Grid xs={2}>
             <Dropdown name="day">
@@ -256,7 +259,23 @@ const Analytics = () => {
                 </Dropdown.Menu>
             </Dropdown>
         </Grid>
-        <AnalyticsCard data={data}/>
+        <Grid xs={12}>
+            <AnalyticsCard data={data}/>
+        </Grid>
+
+        <Grid xs={10}>
+
+        </Grid>
+        <Grid xs={2}>
+
+        </Grid>
+        <Grid xs={6}>
+            <WeeklyDayVsClassesLine/>
+        </Grid>
+        <Grid xs={6}>
+           Some other graph
+        </Grid>
+
 
     </Grid.Container>
 

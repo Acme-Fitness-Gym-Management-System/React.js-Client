@@ -14,13 +14,13 @@ const CreateClassModal = forwardRef(({}, ref) => {
 
     // hardcoded these locations for now
     // todo change value corresponding
-    const locations = [{key: "San jose", value: 1}, {key: "san fransico", value: 1}, {
+    const locations = [{key: "San Francisco", value: 1}, {
         key: "Sacramento",
         value: 2
     }, {key: "Milpitas", value: 3}, {key: "Sunnyvale", value: 4}, {key: "Santa Clara", value: 5}, {
         key: "San Mateo",
         value: 6
-    }];
+    }, {key: "San Jose", value: 7}];
 
     const [selected, setSelected] = React.useState(new Set(["Day of the week"]));
 
