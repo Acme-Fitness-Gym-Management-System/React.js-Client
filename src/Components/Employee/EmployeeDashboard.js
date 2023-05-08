@@ -5,6 +5,8 @@ import ClassManagement from "./Sections/ClassManagement";
 import UserManagement from "./Sections/UserManagement";
 import ClassInfo from "./viewClasses/ClassInfo";
 import {useNavigate} from "react-router-dom";
+import Footer from "../Footer/Footer";
+import React from "react";
 
 
 
@@ -45,7 +47,7 @@ const EmployeeDashboard = () => {
 
         {/*<ClassInfo/>*/}
 
-
+        <Footer/>
 
     </>
 

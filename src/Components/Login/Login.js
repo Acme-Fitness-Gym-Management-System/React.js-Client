@@ -130,9 +130,9 @@ return (
             alignItems="center"
             justify="center"
             color={"white"}
-            css={{ minHeight: '100vh' }}
+            css={{ minHeight: '30vh'}}
         >
-            <Card css={{ mw: '420px', p: '20px' }} onSubmit={submitHandler}>
+            <Card css={{ mw: '420px', p: '20px', w:'400px' }} onSubmit={submitHandler}>
                 <Text
                     size={24}
                     color={"success"}

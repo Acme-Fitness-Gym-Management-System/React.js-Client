@@ -7,6 +7,7 @@ import UpcomingClassCard from "./Classes/UpcomingClassCard";
 import ConsolidatedActivity from "./ConsolidatedWorkoutActivity/ConsolidatedActivity";
 import EnrollClass from "./Classes/EnrollClass/EnrollClass";
 import axios from "axios";
+import Footer from "../Footer/Footer";
 
 
 const UserDashboard = () => {
@@ -257,7 +258,7 @@ const UserDashboard = () => {
 
         </Grid.Container>
 
-
+        <Footer/>
     </>
 
 
