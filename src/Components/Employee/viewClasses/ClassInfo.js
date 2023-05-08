@@ -29,7 +29,7 @@ const ClassInfo = ()=>{
             d = value
         });
         //Request
-        // http://0.0.0.0:8080/getClassesForEmployee?day=Monday&locationid=1
+        // http://13.57.252.62:8080/getClassesForEmployee?day=Monday&locationid=1
         // Output
         //[
         //   {
@@ -54,10 +54,10 @@ const ClassInfo = ()=>{
         //   }
         // ]
 
-        console.log(`http://0.0.0.0:8080/getClassesForEmployee?day=${d}&locationid=${employee.locationid}`);
+        console.log(`http://13.57.252.62:8080/getClassesForEmployee?day=${d}&locationid=${employee.locationid}`);
 
 
-        const { data } = await axios.get(`http://0.0.0.0:8080/getClassesForEmployee?day=${d}&locationid=${employee.locationid}`);
+        const { data } = await axios.get(`http://13.57.252.62:8080/getClassesForEmployee?day=${d}&locationid=${employee.locationid}`);
         console.log(data);
         setData(data);
     };

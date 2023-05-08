@@ -107,7 +107,7 @@ const CreateClassModal = forwardRef(({}, ref) => {
         console.log("inside");
         console.log(JSON.stringify(data));
         try{
-            await axios.post('http://0.0.0.0:8080/class', JSON.stringify(data))
+            await axios.post('http://13.57.252.62:8080/class', JSON.stringify(data))
             alert("Data submitted sucessfully");
             closeHandler()
         }catch (e){

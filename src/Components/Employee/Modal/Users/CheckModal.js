@@ -72,7 +72,7 @@ const CheckModal = forwardRef((props, ref) => {
     const apiCall = async (d) => {
         console.log("inside");
         console.log(d);
-        const url = data.isCheckIn ? "http://0.0.0.0:8080/checkinRecord" : "http://0.0.0.0:8080/checkoutRecord"
+        const url = data.isCheckIn ? "http://13.57.252.62:8080/checkinRecord" : "http://13.57.252.62:8080/checkoutRecord"
 
         try {
             const response = await axios.post(url, d)

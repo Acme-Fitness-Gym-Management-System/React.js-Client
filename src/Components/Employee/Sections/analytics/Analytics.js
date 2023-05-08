@@ -74,7 +74,7 @@ const Analytics = () => {
 
         console.log(graph);
 
-        // const { data } = await axios.get(`http://0.0.0.0:8080/getgraph?xaxis=${xaxis}&yaxis=${yaxis}`);
+        // const { data } = await axios.get(`http://13.57.252.62:8080/getgraph?xaxis=${xaxis}&yaxis=${yaxis}`);
 
         // setData(data);
     };
@@ -161,12 +161,14 @@ export default Analytics;
 
 
 import AnalyticsCard from "./AnalyticsCard";
-import {Dropdown, Grid} from "@nextui-org/react";
+import {Dropdown, Grid, Text} from "@nextui-org/react";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import WeeklyDayVsClassesLine from "./Graphs/WeeklyDayVsClassesLine";
 import HoursSpentByWeekType from "./Graphs/HoursSpentByWeekType";
 import AnalyticsCards from "./AnalyticsCard";
+import ClassesVsUsers from "./Graphs/ClassesVsUsers";
+import MostVisitedDayHeatMap from "./Graphs/HeatMap/MostVisitedDayHeatMap";
 
 const Analytics = () => {
 
@@ -191,7 +193,7 @@ const Analytics = () => {
         })
         dp = dp[0].value+1
 
-         let { data } = await axios.get(`http://0.0.0.0:8080/getOverallAnalytics?type=${dp}`);
+         let { data } = await axios.get(`http://13.57.252.62:8080/getOverallAnalytics?type=${dp}`);
 
         data = JSON.parse(data)
 
@@ -281,7 +283,17 @@ const Analytics = () => {
             <WeeklyDayVsClassesLine/>
         </Grid>
         <Grid xs={6}>
-       <HoursSpentByWeekType/>
+            <ClassesVsUsers/>
+
+        </Grid>
+        <Grid xs={12}>
+            <HoursSpentByWeekType/>
+        </Grid>
+        <Grid xs={12}>
+
+                <MostVisitedDayHeatMap/>
+
+
         </Grid>
 
 

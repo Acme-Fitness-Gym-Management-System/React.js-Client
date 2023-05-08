@@ -27,7 +27,7 @@ const WorkoutDashboard = (props) => {
         });
         d = d.split(" ")[0]
          const user = JSON.parse(sessionStorage.user)
-         const data = await axios.get(`http://0.0.0.0:8080/getPastWorkoutData?interval=${d}&userid=${user.id}`);
+         const data = await axios.get(`http://13.57.252.62:8080/getPastWorkoutData?interval=${d}&userid=${user.id}`);
         //
         //
         // // Done

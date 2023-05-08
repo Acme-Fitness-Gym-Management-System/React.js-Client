@@ -34,7 +34,7 @@ const EnrollClassCard = (props) => {
 
         try{
 
-           await axios.post("http://0.0.0.0:8080/classCatalogue", JSON.stringify(data) )
+           await axios.post("http://13.57.252.62:8080/classCatalogue", JSON.stringify(data) )
 
 
         el =  <Button size="xs" style={{

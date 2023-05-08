@@ -49,7 +49,7 @@ const AddWorkout = ()=>{
     }
 
 
-    // http://0.0.0.0:8080/userActivity (post)
+    // http://13.57.252.62:8080/userActivity (post)
     const apiCall = async (data)=>{
 
 
@@ -57,7 +57,7 @@ const AddWorkout = ()=>{
 
         try{
             console.log(JSON.stringify(data));
-            await axios.post("http://0.0.0.0:8080/userActivity", JSON.stringify(data) )
+            await axios.post("http://13.57.252.62:8080/userActivity", JSON.stringify(data) )
             alert("Data Submitted sucessfully")
 
 

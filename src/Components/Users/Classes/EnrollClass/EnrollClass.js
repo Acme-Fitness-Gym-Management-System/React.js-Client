@@ -62,7 +62,7 @@ const EnrollClass = (props) => {
         })
         const locValue = dp[0].value
 
-        const { data } = await axios.get(`http://0.0.0.0:8080/getClasses?day=${d}&locationid=${locValue}&userid=${user.id}`);
+        const { data } = await axios.get(`http://13.57.252.62:8080/getClasses?day=${d}&locationid=${locValue}&userid=${user.id}`);
         console.log(data);
         setData(data);
     };
