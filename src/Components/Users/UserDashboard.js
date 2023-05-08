@@ -7,15 +7,16 @@ import UpcomingClassCard from "./Classes/UpcomingClassCard";
 import ConsolidatedActivity from "./ConsolidatedWorkoutActivity/ConsolidatedActivity";
 import EnrollClass from "./Classes/EnrollClass/EnrollClass";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 
 const UserDashboard = () => {
 
-
+    const navigate = useNavigate();
 
     const user = JSON.parse(sessionStorage.user);
     const customerName = user.name
-    console.log(user)
+
 
     const [activityData, setActivityData] = useState([[], [], [], [], [], [], [], [], [], [], [], []])
 
@@ -36,8 +37,17 @@ const UserDashboard = () => {
 
     };
     useEffect(() => {
+
+        let u  = sessionStorage.user
+
+
+        if(!u){
+            console.log("inside");
+            navigate("/login");
+        }
         getData();
     },[]);
+
 
 
     return <>

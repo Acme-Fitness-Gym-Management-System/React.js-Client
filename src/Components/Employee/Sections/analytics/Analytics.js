@@ -164,7 +164,8 @@ import AnalyticsCard from "./AnalyticsCard";
 import {Dropdown, Grid} from "@nextui-org/react";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import WeeklyDayVsClassesLine from "./Line/WeeklyDayVsClassesLine";
+import WeeklyDayVsClassesLine from "./Graphs/WeeklyDayVsClassesLine";
+import HoursSpentByWeekType from "./Graphs/HoursSpentByWeekType";
 
 const Analytics = () => {
 
@@ -279,7 +280,7 @@ const Analytics = () => {
             <WeeklyDayVsClassesLine/>
         </Grid>
         <Grid xs={6}>
-           Some other graph
+       <HoursSpentByWeekType/>
         </Grid>
 
 

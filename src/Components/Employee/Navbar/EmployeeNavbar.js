@@ -12,7 +12,7 @@ const signOutHandler = ()=>{
     console.log("logging out, bye!!!");
     sessionStorage.clear();
 
-    navigate("/home");
+    navigate("/employee");
 }
 
     return <Navbar isBordered variant="floating">

@@ -5,22 +5,30 @@ import ClassManagement from "./Sections/ClassManagement";
 import UserManagement from "./Sections/UserManagement";
 import ClassInfo from "./viewClasses/ClassInfo";
 import {useNavigate} from "react-router-dom";
+import {useEffect} from "react";
 
 
 
 
 const EmployeeDashboard = () => {
 
-    // const navigate = useNavigate();
-    // let employee  = sessionStorage.employee
-    // console.log(employee);
-    //
-    // if(!employee){
-    //     console.log("inside");
-    //     navigate("/login");
-    // }
-    //
-    // employee = JSON.parse(employee)
+
+    const navigate = useNavigate();
+
+
+    useEffect(()=>{
+
+        // let e  = sessionStorage.employee
+        // let u = sessionStorage.user
+        //
+        //
+        // if(!e){
+        //     navigate("/login");
+        // }
+
+
+
+    },[])
 
     const employee={
         name:"Chiruhas"
