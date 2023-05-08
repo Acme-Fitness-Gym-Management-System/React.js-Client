@@ -23,10 +23,7 @@ const signOutHandler = ()=>{
             </Text>
         </Navbar.Brand>
 
-        <Navbar.Content hideIn="xs" variant="highlight-rounded">
-            <Navbar.Link href="/employee">Analytics</Navbar.Link>
 
-        </Navbar.Content>
 
         <Navbar.Content>
             <Navbar.Item color="inherit" href="#">

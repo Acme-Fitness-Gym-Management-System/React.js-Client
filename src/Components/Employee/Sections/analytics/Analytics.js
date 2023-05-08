@@ -166,6 +166,7 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 import WeeklyDayVsClassesLine from "./Graphs/WeeklyDayVsClassesLine";
 import HoursSpentByWeekType from "./Graphs/HoursSpentByWeekType";
+import AnalyticsCards from "./AnalyticsCard";
 
 const Analytics = () => {
 
@@ -267,7 +268,7 @@ const Analytics = () => {
             </Dropdown>
         </Grid>
         <Grid xs={12}>
-            <AnalyticsCard data={data}/>
+            <AnalyticsCards data={data}/>
         </Grid>
 
         <Grid xs={10}>

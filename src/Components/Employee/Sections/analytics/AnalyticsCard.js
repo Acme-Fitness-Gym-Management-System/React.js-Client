@@ -2,7 +2,7 @@ import {Card, Grid, Text} from "@nextui-org/react";
 import React from "react";
 
 
-const AnalyticsCard = (props)=>{
+const AnalyticsCards = (props)=>{
 
 
     /**
@@ -19,8 +19,8 @@ const AnalyticsCard = (props)=>{
 
     return <Grid.Container gap={4}>
         <Grid xs={4} >
-            <Card isHoverable>
-                <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
+            <Card isHoverable style={{backgroundImage: "linear-gradient(to right, #4880EC, #019CAD)" }}>
+                <Card.Header>
 
                     <Grid.Container>
 
@@ -33,22 +33,16 @@ const AnalyticsCard = (props)=>{
                     </Grid.Container>
 
                 </Card.Header>
-                <Card.Image
-                    src="https://nextui.org/images/card-example-4.jpeg"
-                    objectFit="cover"
-                    width="100%"
-                    height={200}
-                    alt="Card image background"
-                />
             </Card>
+
         </Grid>
         <Grid xs={4}>
-            <Card isHoverable>
-                <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
+            <Card isHoverable style={{backgroundImage: "linear-gradient(to right, #CB356B, #BD3F32)" }}>
+                <Card.Header>
 
                     <Grid.Container>
 
-                        <Grid xs={12} justify={"center"}><Text h3>New Mmeber's</Text></Grid>
+                        <Grid xs={12} justify={"center"}><Text h3>New Member's</Text></Grid>
                         <Grid xs={4}></Grid>
                         <Grid xs={4} justify={"center"}><Text h2>{data[1].current}</Text></Grid>
                         <Grid xs={4}></Grid>
@@ -57,19 +51,13 @@ const AnalyticsCard = (props)=>{
                     </Grid.Container>
 
                 </Card.Header>
-                <Card.Image
-                    src="https://nextui.org/images/card-example-4.jpeg"
-                    objectFit="cover"
-                    width="100%"
-                    height={200}
-                    alt="Card image background"
-                />
+
 
             </Card>
         </Grid>
         <Grid xs={4}>
-            <Card isHoverable >
-                <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
+            <Card isHoverable style={{backgroundImage: "linear-gradient(to right, #4568DC, #B06AB3)" }}>
+                <Card.Header>
 
                     <Grid.Container>
                         <Grid xs={12} justify={"center"}><Text h3>Enrollment in classes</Text></Grid>
@@ -80,14 +68,6 @@ const AnalyticsCard = (props)=>{
                     </Grid.Container>
 
                 </Card.Header>
-                <Card.Image
-                    src="https://nextui.org/images/card-example-4.jpeg"
-                    objectFit="cover"
-                    width="100%"
-                    height={200}
-                    alt="Card image background"
-                />
-
             </Card>
         </Grid>
     </Grid.Container>
@@ -95,4 +75,4 @@ const AnalyticsCard = (props)=>{
 }
 
 
-export default AnalyticsCard
+export default AnalyticsCards
