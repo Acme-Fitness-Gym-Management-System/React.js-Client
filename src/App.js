@@ -6,6 +6,7 @@ import CustomerDashboard from "./Components/Users/UserDashboard";
 import Login from "./Components/Login/Login";
 import UserDashboard from "./Components/Users/UserDashboard";
 import LandingPage from "./Components/LandingPage/LandingPage";
+import CarouselPage from "./Components/LandingPage/CarouselPage";
 
 
 const theme = createTheme({
@@ -58,6 +59,9 @@ function App() {
 
                     {/*<Route path='/login' element={<Login/>}/>*/}
                     <Route path='/' element={<LandingPage/>}/>
+                    {/*<Route path='/' element={<CarouselPage/>}/>*/}
+
+
 
 
 
