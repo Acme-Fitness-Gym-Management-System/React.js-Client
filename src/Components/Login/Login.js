@@ -29,8 +29,10 @@ export default () => {
     const [successMsg, setSuccessMsg] = useState('');
 
 const submitHandler = async()=>{
-    validateEmail(email);
-    validatePassword(password);
+    const isEmailValidated = validateEmail(email);
+    const isPasswordValidated = validatePassword(password);
+
+
     if(await authenticate(email,password))
     {
         console.log("authenticated successfully");
@@ -39,19 +41,35 @@ const submitHandler = async()=>{
     }
 }
 const validateEmail = (email) => {
+    const booluu = false;
     if(email ==="")
     {
         setEmailError('Enter Email address!')
+    }else if(email.indexOf("@") === -1 || email.indexOf(".") === -1){
+        setEmailError('Enter valid Email address!')
+    }else{
+        return true;
     }
+    return booluu;
+
+
 }
+
 const validatePassword = (password) => {
+    const booluu = false;
+
     if(password==="")
     {
         setPasswordError('Enter Password!')
-    }else if(password.length < 6)
+    }else if(password.length < 8)
     {
-        setPasswordError('Password must contain atleast 6 characters!')
+        setPasswordError('Password must contain atleast 8 characters!')
+    }else if((password.toString()).includes(email.substring(0, email.indexOf("@")-1))){
+        setPasswordError('Password must not contain username!')
+    }else{
+        return true;
     }
+    return booluu;
 }
 const handleEmailChange = (event) => {
     setEmailError('');
@@ -156,7 +174,7 @@ return (
                 {/*<Spacer y={1} />*/}
                 <br/>
                 {emailError&&<div>{emailError}</div>}
-                <Input
+                <Input.Password
                     clearable
                     bordered
                     fullWidth

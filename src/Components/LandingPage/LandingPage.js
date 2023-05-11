@@ -1,7 +1,7 @@
 import {useNavigate} from "react-router-dom";
 import React, {useState} from "react";
 import axios from "axios";
-import {Button, Card, Container, Grid, Input, Spacer, Text} from "@nextui-org/react";
+import {Button, Card, Container, Grid, Image, Input, Spacer, Text} from "@nextui-org/react";
 import LPNavbar from "./LPNavbar";
 import AddWorkout from "../Users/workoutTracking/AddWorkout";
 import Login from "../Login/Login";
@@ -52,8 +52,13 @@ const LandingPage = (props)=>{const navigate = useNavigate();
                             {/*<Grid xs={12} justify="center">*/}
                             {/*</Grid>*/}
                             <Grid xs={12} justify="center">
-                                {/*<Text h4 color="success">Join our free trail today!!!</Text>*/}
-                                {/*<CarouselPage/>*/}
+                                {/*<Image*/}
+                                {/*    width={320}*/}
+                                {/*    height={300}*/}
+                                {/*    src={bomma}*/}
+                                {/*    alt="Default Image"*/}
+                                {/*    objectFit="cover"*/}
+                                {/*/>*/}
                             </Grid>
                             {/*<UpcomingClassCard/>*/}
                         </Grid.Container>
