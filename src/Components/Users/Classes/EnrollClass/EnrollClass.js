@@ -1,13 +1,17 @@
-import {Dropdown, Grid} from "@nextui-org/react";
+import {Dropdown, Grid, Loading} from "@nextui-org/react";
 import EnrollClassGrid from "./EnrollClassGrid";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import EnrollClassCard from "./EnrollClassCard";
 
 
 const EnrollClass = (props) => {
+    let user = JSON.parse(sessionStorage.user)
 
     const days=[{key:"Monday"},{key:"Tuesday"},{key:"Wednesday"},{key:"Thursday"},{key:"Friday"},{key:"Saturday"},{key:"Sunday"}]
-
+    // this is the data at a given day and a location
+    // once the user changes any of that a new api call will be made and data will be updated
+    const [data, setData] = useState([])
 
     // hardcoded these locations for now
     const locations = [{key: "San Francisco", value: 1}, {
@@ -16,7 +20,7 @@ const EnrollClass = (props) => {
     }, {key: "Milpitas", value: 3}, {key: "Sunnyvale", value: 4}, {key: "Santa Clara", value: 5}, {
         key: "San Mateo",
         value: 6
-    }];
+    }, {key: "San Jose", value: 7}];
 
     const [selected, setSelected] = React.useState(new Set(["Sunday"]));
 
@@ -26,7 +30,7 @@ const EnrollClass = (props) => {
 
     const [selectedLocation, setSelectedLocation] = useState("San Fransico");
 
-
+    const [loading,setLoading] = useState(false)
 
 
     const setDayState = async (e) => {
@@ -45,6 +49,8 @@ const EnrollClass = (props) => {
     // fetching activity data
     const getData = async () => {
 
+        setLoading(true)
+
         let d=""
        selected.forEach((value) =>{
            d = value
@@ -61,9 +67,11 @@ const EnrollClass = (props) => {
         })
         const locValue = dp[0].value
 
-        const { data } = await axios.get(`http://0.0.0.0:8080/getClasses?day=${d}&location=${locValue}`);
+        const { data } = await axios.get(`http://100.26.42.194:8080/getClasses?day=${d}&locationid=${locValue}&userid=${user.id}`);
+        console.log(data);
+        setData(data)
 
-        setData(data);
+        setLoading(false)
     };
 
     useEffect(() => {
@@ -73,9 +81,12 @@ const EnrollClass = (props) => {
     //const [dayState, setDayState] = useState("Sunday")
 
 
-    // this is the data at a given day and a location
-    // once the user changes any of that a new api call will be made and data will be updated
-    const [data, setData] = useState([])
+    const e =  loading?<Loading color='success'/> : data.map((d,i)=> <Grid xs={3} key={i}>
+
+            <EnrollClassCard data={d} id={d.class_id}/>
+
+        </Grid>)
+
 
     // expected data is an array of array of objecys
 
@@ -167,7 +178,8 @@ const EnrollClass = (props) => {
         </Grid>
 
         <Grid xs={12}>
-            <EnrollClassGrid data={data}/>
+
+            {e}
         </Grid>
 
     </Grid.Container>

@@ -14,13 +14,13 @@ const CreateClassModal = forwardRef(({}, ref) => {
 
     // hardcoded these locations for now
     // todo change value corresponding
-    const locations = [{key: "San jose", value: 1}, {key: "san fransico", value: 1}, {
+    const locations = [{key: "San Francisco", value: 1}, {
         key: "Sacramento",
         value: 2
     }, {key: "Milpitas", value: 3}, {key: "Sunnyvale", value: 4}, {key: "Santa Clara", value: 5}, {
         key: "San Mateo",
         value: 6
-    }];
+    }, {key: "San Jose", value: 7}];
 
     const [selected, setSelected] = React.useState(new Set(["Day of the week"]));
 
@@ -85,9 +85,9 @@ const CreateClassModal = forwardRef(({}, ref) => {
                 enddate: event.target.endDate.value,
                 starttime: event.target.startTime.value,
                 endtime: event.target.endTime.value,
-                locationid: d, //change to locationid
+                locationid: d[0].value, //change to locationid
                 day: day,
-                cost:event.target.cost.value
+                cost:parseInt(event.target.cost.value)
             }
 
 
@@ -107,7 +107,9 @@ const CreateClassModal = forwardRef(({}, ref) => {
         console.log("inside");
         console.log(JSON.stringify(data));
         try{
-            await axios.post('http://0.0.0.0:8080/class', JSON.stringify(data))
+            await axios.post('http://100.26.42.194:8080/class', JSON.stringify(data))
+            alert("Data submitted sucessfully");
+            closeHandler()
         }catch (e){
             alert("OOPs something happened");
         }

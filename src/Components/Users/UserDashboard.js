@@ -7,15 +7,16 @@ import UpcomingClassCard from "./Classes/UpcomingClassCard";
 import ConsolidatedActivity from "./ConsolidatedWorkoutActivity/ConsolidatedActivity";
 import EnrollClass from "./Classes/EnrollClass/EnrollClass";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 
 const UserDashboard = () => {
 
-
+    const navigate = useNavigate();
 
     const user = JSON.parse(sessionStorage.user);
     const customerName = user.name
-    console.log(user)
+
 
     const [activityData, setActivityData] = useState([[], [], [], [], [], [], [], [], [], [], [], []])
 
@@ -23,7 +24,7 @@ const UserDashboard = () => {
     // fetching activity data
     const getData = async () => {
 
-        const { data } = await axios.get(`http://0.0.0.0:8080/getDayWiseUserActivity?userid=${user.id}`);
+        const { data } = await axios.get(`http://100.26.42.194:8080/getDayWiseUserActivity?userid=${user.id}`);
 
         // todo figure out how to properly update state.
         let temp = [];
@@ -34,14 +35,19 @@ const UserDashboard = () => {
 
         setActivityData(temp);
 
-
-
-
-
     };
     useEffect(() => {
+
+        let u  = sessionStorage.user
+
+
+        if(!u){
+            console.log("inside");
+            navigate("/login");
+        }
         getData();
-    }, []);
+    },[]);
+
 
 
     return <>
@@ -69,7 +75,7 @@ const UserDashboard = () => {
                                             <Text h4>Upcoming Classes</Text>
                                         </Grid>
 
-                                        <UpcomingClassCard/>
+                                        <UpcomingClassCard data={user}/>
 
                                     </Grid.Container>
 

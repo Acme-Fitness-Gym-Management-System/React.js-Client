@@ -1,0 +1,108 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    margin: 50px auto;
+    max-width: 100%vw;
+}
+
+.heatmap {
+    display: grid;
+    grid-gap: 5px;
+    align-items: start;
+}
+
+.col {
+    display: grid;
+    grid-gap: 5px;
+}
+
+.cell {
+    height: 15px;
+    width: 100%;
+    position: relative;
+    background: #000;
+    /*background: hsl(196deg 36% 95%);*/
+}
+
+.label {
+    text-align: center;
+    height: 15px;
+    font-size: 14px;
+}
+
+.vertical {
+    max-width: 400px;
+    grid-template-columns: repeat(8, 1fr);
+}
+
+.vertical .col {
+    flex-direction: column;
+}
+
+.horizontal {
+    max-width: 900px;
+    grid-template-rows: repeat(8, 1fr);
+}
+
+.horizontal .col {
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+}
+
+.horizontal .cells .label {
+    text-align: left;
+}
+
+.tooltip {
+    position: absolute;
+    display: none;
+    background: black   ;
+    border: 1px solid black;
+    padding: 10px;
+    z-index: 1;
+    top: 50%;
+    left: 100%;
+    font-size: 18px;
+    border-radius: 4px;
+    min-width: 110px;
+}
+
+.tooltip span {
+    display: block;
+    font-size: 14px;
+}
+
+.tooltip .count {
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.cell:hover .tooltip {
+    display: block;
+}
+
+.legend {
+    margin-top: 30px;
+    max-width: 300px;
+}
+
+.legend .cell {
+    height: 15px;
+    width: 100%;
+}
+
+.legend .labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 5px;
+}
+
+.legend span {
+    font-size: 16px;
+}

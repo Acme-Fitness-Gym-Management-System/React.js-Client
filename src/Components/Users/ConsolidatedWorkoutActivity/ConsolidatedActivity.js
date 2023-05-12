@@ -3,10 +3,10 @@ import {Card, Grid, Spacer, Tooltip} from "@nextui-org/react";
 
 const ConsolidatedActivity = (props) => {
 
-    console.log(props.data);
+    // console.log(props.data);
     const [data, setData] = useState([]);
 
-    console.log(data);
+    // console.log(data);
 
 
     // console.log(len);
@@ -30,7 +30,7 @@ const ConsolidatedActivity = (props) => {
     })
 
     let el =[]
-    console.log(data)
+    // console.log(data)
     for (let i = 0; i < 11 && data.length>0 ; i++) {
        let t = <Grid.Container key={i} justify="center">
 

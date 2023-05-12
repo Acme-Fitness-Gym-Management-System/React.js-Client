@@ -57,31 +57,36 @@ const CheckModal = forwardRef((props, ref) => {
 
         const employee = JSON.parse(sessionStorage.employee)
 
-        const data = {
-            "email": event.target.email.value,
+        const d = {
+            "useremail": event.target.email.value,
             "type" : data.isCheckIn?1:2,
             "locationid":employee.locationid,
             "employeeid":employee.id
 
         }
-        apiCall(data)
+        apiCall(d)
 
 
     }
 
-    const apiCall = async (data) => {
+    const apiCall = async (d) => {
         console.log("inside");
-        const url = data.isCheckIn ? "http://0.0.0.0:8080/checkinRecord" : "http://0.0.0.0:8080/checkoutRecord"
+        console.log(d);
+        const url = data.isCheckIn ? "http://100.26.42.194:8080/checkinRecord" : "http://100.26.42.194:8080/checkoutRecord"
 
         try {
-            const response = await axios.post(url, data)
-            alert("User data entered sucessfully");
-            setAddClassVisible(false);
+            const response = await axios.post(url, d)
+
+            data.isCheckIn?alert("User Checked in, sucessfully!!") : alert("user Checked out sucessfully!!");
+
 
 
         } catch (e) {
-            alert("OOPs something happened");
+
+            data.isCheckIn?alert("User alaready checked in") : alert("User didn't checked in")
+
         }
+        setAddClassVisible(false);
 
         setLoading(false);
 
