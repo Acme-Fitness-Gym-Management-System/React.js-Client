@@ -59,7 +59,7 @@ function App() {
 
                     <Route path='/login' element={<Login/>}/>
 
-
+                    <Route path='/' element={<LandingPage/>}/>
 
                     <Route path="*" element={<Error/>} />
 

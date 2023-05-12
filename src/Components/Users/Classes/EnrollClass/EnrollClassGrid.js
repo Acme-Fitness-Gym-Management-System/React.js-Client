@@ -8,13 +8,6 @@ const EnrollClassGrid = (props)=>{
 
 
 
-
-    // {className:"Aerobics",time:"7.00-8.00",capacity:"40",},{className:"Aerobics",time:"7.00-8.00",capacity:"40",}
-
-
-
-
-
     return <Grid.Container gap={2}>
 
 

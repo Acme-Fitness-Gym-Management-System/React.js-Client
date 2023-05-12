@@ -98,12 +98,12 @@ const EnrollClassCard = (props) => {
 
             <Grid.Container>
                 <Grid xs={8}>
-                    <Text h2 color="white">
+                    <Text h3 color="white">
                         {data.class_name}
                     </Text>
                 </Grid>
                 <Grid xs={4}>
-                    <Text h3 weight="bold" transform="uppercase" color="#ffffffAA">
+                    <Text h4 weight="bold" transform="uppercase" color="#ffffffAA">
                         {data.cost}$
                     </Text>
                 </Grid>
@@ -178,7 +178,7 @@ const EnrollClassCard = (props) => {
             src="https://nextui.org/images/card-example-4.jpeg"
             objectFit="cover"
             width="100%"
-            height={300}
+            height={225}
             alt="Card image background"
         />
     </Card>:""

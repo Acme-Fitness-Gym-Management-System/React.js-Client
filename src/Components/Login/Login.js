@@ -156,6 +156,7 @@ export default () => {
                         color={"success"}
                         size="lg"
                         placeholder="Password"
+                        type="password"
                         onChange={handlePassChange}
                     />
                     <br/>

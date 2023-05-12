@@ -37,14 +37,23 @@ const AddWorkout = ()=>{
                 return el.key === type
             })
 
-            const data = {
-                userid:user.id,
-                deviceid:dp[0].value,
-                start:event.target.startTime.value,
-                end:event.target.endTime.value
+            let startTime = event.target.startTime.value
+            let endTime = event.target.endTime.value
+
+            if(endTime<startTime)
+                alert("End Time is less than start Time please correct!.");
+            else{
+                const data = {
+                    userid:user.id,
+                    deviceid:dp[0].value,
+                    start:startTime,
+                    end:endTime
+                }
+                console.log(data);
+                apiCall(data)
             }
-            console.log(data);
-            apiCall(data)
+
+
         }
     }
 

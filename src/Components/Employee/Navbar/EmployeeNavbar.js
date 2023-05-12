@@ -7,13 +7,13 @@ function EmployeeNavbar(props){
 
     const s = "hello "+props.name
     const navigate = useNavigate();
-
+/*
 const signOutHandler = ()=>{
     console.log("logging out, bye!!!");
     sessionStorage.clear();
 
     navigate("/employee");
-}
+}*/
 
     return <Navbar isBordered variant="floating">
         <Navbar.Brand>
@@ -31,7 +31,7 @@ const signOutHandler = ()=>{
             </Navbar.Item>
             <Navbar.Item>
                 {/*handle sign out todo*/}
-                <Button auto flat onClick={signOutHandler}>
+                <Button auto flat as={Link} href="/home">
                     Sign Out
                 </Button>
             </Navbar.Item>

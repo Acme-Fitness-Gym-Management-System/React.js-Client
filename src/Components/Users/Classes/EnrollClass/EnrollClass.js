@@ -95,7 +95,7 @@ const EnrollClass = (props) => {
     // const el = loading ? <Button type="submit"><Loading color='success'/></Button> :
     //     <Button type="submit">Submit</Button>
 
-    return <Grid.Container>
+    return <Grid.Container gap={2}>
         <Grid xs={8}></Grid>
         <Grid xs={2}>
             <Dropdown name="day">

@@ -6,7 +6,7 @@ import ViewClassCard from "../Employee/viewClasses/ViewClassCard";
 
 const LandingPageClassInfo = () => {
 
-    const days = [{key: "Monday"}, {key: "Tuesday"}, {key: "Wednesday"}, {key: "Thursday"}, {key: "Friday"}, {key: "Saturday"}]
+    const days = [{key: "Monday"}, {key: "Tuesday"}, {key: "Wednesday"}, {key: "Thursday"}, {key: "Friday"}, {key: "Saturday"},{key: "Sunday"}]
 
     const [selected, setSelected] = React.useState(new Set(["Sunday"]));
     const [selectedDay, setSelectedDay] = useState("Sunday");
