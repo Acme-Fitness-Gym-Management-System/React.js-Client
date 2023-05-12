@@ -29,14 +29,7 @@ const ClassInfo = ()=>{
         selected.forEach((value) =>{
             d = value
         });
-
-        console.log(`http://100.26.42.194:8080/getClassesForEmployee?day=${d}&locationid=${employee.locationid}`);
-
-        console.log(`http://100.26.42.194:8080/getClassesForEmployee?day=${d}&locationid=${employee.locationid}`);
-
-
         const { data } = await axios.get(`http://100.26.42.194:8080/getClassesForEmployee?day=${d}&locationid=${employee.locationid}`);
-        console.log(data);
         setData(data);
     };
 

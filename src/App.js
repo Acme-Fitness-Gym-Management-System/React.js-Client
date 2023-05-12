@@ -6,6 +6,7 @@ import CustomerDashboard from "./Components/Users/UserDashboard";
 import Login from "./Components/Login/Login";
 import UserDashboard from "./Components/Users/UserDashboard";
 import Error from "./Components/Error";
+import LandingPage from "./Components/home/LandingPage";
 
 
 const theme = createTheme({
@@ -54,9 +55,11 @@ function App() {
 
                     <Route path='/user' element={<UserDashboard/>}/>
 
-                    {/*<Route path='/home' element={<Landing/>}/>*/}
+                    <Route path='/home' element={<LandingPage/>}/>
 
                     <Route path='/login' element={<Login/>}/>
+
+
 
                     <Route path="*" element={<Error/>} />
 

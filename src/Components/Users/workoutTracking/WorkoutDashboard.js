@@ -86,7 +86,6 @@ const WorkoutDashboard = (props) => {
     };
 
     useEffect(() => {
-
         getData()
     },[]);
 

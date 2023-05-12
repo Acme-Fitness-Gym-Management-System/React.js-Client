@@ -57,7 +57,7 @@ const ConsolidatedActivity = (props) => {
 
 
             </Grid>
-            <Grid xs={4}>
+            <Grid xs={4}>{}
 
 
                 <Tooltip content={i + 22 < data.length ? i + 23 : ""}>
