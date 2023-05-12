@@ -10,6 +10,7 @@ const ClassInfo = ()=>{
     const days=[{key:"Monday"},{key:"Tuesday"},{key:"Wednesday"},{key:"Thursday"},{key:"Friday"},{key:"Saturday"}]
 
     const [selected, setSelected] = React.useState(new Set(["Sunday"]));
+    const [selectedDay, setSelectedDay] = useState("Sunday");
 
     const employee = JSON.parse(sessionStorage.employee)
 
@@ -28,43 +29,20 @@ const ClassInfo = ()=>{
         selected.forEach((value) =>{
             d = value
         });
-        //Request
-        // http://13.57.252.62:8080/getClassesForEmployee?day=Monday&locationid=1
-        // Output
-        //[
-        //   {
-        //     "class_id": 3,
-        //     "class_name": "dummy ",
-        //     "instructorname": "name123",
-        //     "cost": 10,
-        //     "startdate": "2023-05-04T00:00:00Z",
-        //     "enddate": "2023-05-31T00:00:00Z",
-        //     "starttime": "0000-01-01T09:00:00Z",
-        //     "endtime": "0000-01-01T10:00:00Z"
-        //   },
-        //   {
-        //     "class_id": 1,
-        //     "class_name": "Yoga",
-        //     "instructorname": "inst1",
-        //     "cost": 10,
-        //     "startdate": "2023-06-01T00:00:00Z",
-        //     "enddate": "2023-05-01T00:00:00Z",
-        //     "starttime": "0000-01-01T21:00:00Z",
-        //     "endtime": "0000-01-01T22:00:00Z"
-        //   }
-        // ]
 
-        console.log(`http://13.57.252.62:8080/getClassesForEmployee?day=${d}&locationid=${employee.locationid}`);
+        console.log(`http://100.26.42.194:8080/getClassesForEmployee?day=${d}&locationid=${employee.locationid}`);
+
+        console.log(`http://100.26.42.194:8080/getClassesForEmployee?day=${d}&locationid=${employee.locationid}`);
 
 
-        const { data } = await axios.get(`http://13.57.252.62:8080/getClassesForEmployee?day=${d}&locationid=${employee.locationid}`);
+        const { data } = await axios.get(`http://100.26.42.194:8080/getClassesForEmployee?day=${d}&locationid=${employee.locationid}`);
         console.log(data);
         setData(data);
     };
 
     useEffect(()=>{
         getData()
-    })
+    },[])
 
 
     return <Grid.Container gap={2}>
@@ -72,7 +50,7 @@ const ClassInfo = ()=>{
         <Grid xs={10}> </Grid>
         <Grid xs={2}><Dropdown name="day">
             <Dropdown.Button flat color="secondary" css={{tt: "capitalize"}} name='day'>
-                {selectedValue}
+                {selectedDay}
             </Dropdown.Button>
             <Dropdown.Menu
                 aria-label="Single selection actions"
@@ -80,8 +58,23 @@ const ClassInfo = ()=>{
                 disallowEmptySelection
                 selectionMode="single"
                 selectedKeys={selected}
-                onSelectionChange={setSelected}
                 items={days}
+                onSelectionChange={(e) => {
+
+                    setSelected((currentState) => {
+                        let d = ""
+                        e.forEach((value) => {
+                            d = value
+                        });
+                        currentState.clear()
+                        currentState.add(d)
+                        setSelectedDay(d)
+                        return currentState
+                    })
+
+                    getData()
+                }}
+
             >
 
                 {(item) => (

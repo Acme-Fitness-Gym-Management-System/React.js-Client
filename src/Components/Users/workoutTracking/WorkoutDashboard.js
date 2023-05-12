@@ -11,10 +11,10 @@ const WorkoutDashboard = (props) => {
 
 
     const [data, setData] = React.useState({
-        treadmill: "1",
-        cycling: "1",
-        stairMachine: "1",
-        weightTrainning: "1"
+        treadmill: 0,
+        cycling: 0,
+        stairMachine: 0,
+        weightTrainning: 0
     })
 
 
@@ -27,7 +27,14 @@ const WorkoutDashboard = (props) => {
         });
         d = d.split(" ")[0]
          const user = JSON.parse(sessionStorage.user)
-         const data = await axios.get(`http://13.57.252.62:8080/getPastWorkoutData?interval=${d}&userid=${user.id}`);
+
+         let d2 = await axios.get(`http://100.26.42.194:8080/getPastWorkoutData?interval=${d}&userid=${user.id}`);
+
+        d2 = d2.data || []
+
+        console.log(d2);
+
+
         //
         //
         // // Done
@@ -57,13 +64,23 @@ const WorkoutDashboard = (props) => {
         //
         //
         //
+
+        let arr = [0,0,0,0];
+
+        d2.map((el,i)=>{
+
+            arr[parseInt(el.devicetype)-1]=(el.totaltimeseconds)/60
+
+        })
+        console.log(arr);
+
         setData((prevData)=>{
             return {
                 ...prevData,
-                treadmill:0,
-                cycling: 0,
-                stairMachine: 0,
-                weightTrainning: 0
+                treadmill:arr[0],
+                cycling: arr[1],
+                stairMachine: arr[2],
+                weightTrainning: arr[3]
             }
         });
     };
@@ -71,9 +88,9 @@ const WorkoutDashboard = (props) => {
     useEffect(() => {
 
         getData()
-    });
+    },[]);
 
-    return <Grid.Container>
+    return <Grid.Container >
         <Grid xs={12} justify="center">
             <Text h4>Your Activity</Text>
 
@@ -118,29 +135,55 @@ const WorkoutDashboard = (props) => {
             </Dropdown>
         </Grid>
         <Grid xs={6} justify="center">
-            <Text h4>Weight Training</Text>
+            <Grid.Container gap={2}>
+                <Grid xs={8}>
+                    <Text h4>Weight Training</Text>
+                </Grid>
+                <Grid xs={4}>
+                    <Text h4>{data.weightTrainning}</Text>
+                </Grid>
+            </Grid.Container>
 
-                <Text h4> {data.weightTrainning}</Text>
 
 
         </Grid>
 
         <Grid xs={6} justify="center">
-            <Text h4>Cycling</Text>
-            {'\n'}
-            <Text h4>{data.cycling}</Text>
+            <Grid.Container gap={2}>
+                <Grid xs={8}>
+                    <Text h4>Cycling</Text>
+                </Grid>
+                <Grid xs={4}>
+                    <Text h4>{data.cycling}</Text>
+                </Grid>
+            </Grid.Container>
+
+
+
         </Grid>
 
         <Grid xs={6} justify="center">
-            <Text h4>Stair Machine</Text>
-            {'\n'}
-            <Text h4>{data.stairMachine}</Text>
+
+            <Grid.Container gap={2}>
+                <Grid xs={8}>
+                    <Text h4>Stair Machine</Text>
+                </Grid>
+                <Grid xs={4}>
+                    <Text h4>{data.stairMachine}</Text>
+                </Grid>
+            </Grid.Container>
+
         </Grid>
 
         <Grid xs={6} justify="center">
-            <Text h4>Treadmill</Text>
-            {'\n'}
-            <Text h4>{data.treadmill}</Text>
+            <Grid.Container gap={2}>
+                <Grid xs={8}>
+                    <Text h4>Treadmill</Text>
+                </Grid>
+                <Grid xs={4}>
+                    <Text h4>{data.treadmill}</Text>
+                </Grid>
+            </Grid.Container>
         </Grid>
 
 

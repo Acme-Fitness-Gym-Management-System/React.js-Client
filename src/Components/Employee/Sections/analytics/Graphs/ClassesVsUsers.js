@@ -101,7 +101,7 @@ const ClassesVsUsers = () => {
 
         const dayType = v === 'Week-Day' ? 0 : 1
 
-        //const d = axios.get(`http://13.57.252.62/someEndpoint?locationid=${locationValue}&dayType=${dayType}`)
+        //const d = axios.get(`http://100.26.42.194/someEndpoint?locationid=${locationValue}&dayType=${dayType}`)
 
 
         // setClassData((p) => {

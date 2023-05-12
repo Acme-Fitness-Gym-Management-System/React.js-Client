@@ -24,7 +24,7 @@ const UserDashboard = () => {
     // fetching activity data
     const getData = async () => {
 
-        const { data } = await axios.get(`http://13.57.252.62:8080/getDayWiseUserActivity?userid=${user.id}`);
+        const { data } = await axios.get(`http://100.26.42.194:8080/getDayWiseUserActivity?userid=${user.id}`);
 
         // todo figure out how to properly update state.
         let temp = [];
@@ -75,7 +75,7 @@ const UserDashboard = () => {
                                             <Text h4>Upcoming Classes</Text>
                                         </Grid>
 
-                                        <UpcomingClassCard/>
+                                        <UpcomingClassCard data={user}/>
 
                                     </Grid.Container>
 

@@ -1,54 +1,55 @@
 import {Card, Grid, Text} from "@nextui-org/react";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
+import axios from "axios";
 
 
-const UpcomingClassCard = () => {
+const UpcomingClassCard = (props) => {
 
 // modal definition
 
-    /**
-     * {
-     *         className:"",
-     *         time:"",
-     *         location:""
-     *  }
-     */
 
-    const [data, useData] = useState([{
-        className: "hello",
-        time: "",
-        location: ""
-    }, {
-        className: "hello",
-        time: "",
-        location: ""
+
+    const user = props.data
+
+    const [data, setData] = useState([]);
+
+
+
+
+
+    const getData = async()=>{
+
+
+        const {data}= await axios.get(`http://100.26.42.194:8080/getUpcomingClasses?userid=${user.id}`)
+
+        console.log(data);
+
+        setData(data)
     }
-    ]);
-
-    // Grid.container >
-    //
-    // {/*<Grid xs={12}>*/}
-    // {/*<Card isHoverable variant="bordered">*/}
-    // {/*    <Card.Body>*/}
-    // {/*        <Grid.Container>*/}
-    // <Grid xs={8}><Text h4>{d.className}</Text></Grid>
-    // <Grid xs={4}><Text h5>@{d.location}</Text></Grid>
-    // <Grid xs={5}><Text h5>{d.time}</Text></Grid>
-    // <Grid xs={7}><Text h5>{d.time}</Text></Grid>
-    // {/*</Grid.Container>*/}
-    //
-    // {/*    </Card.Body>*/}
-    // {/*</Card>*/}
-    // {/*</Grid>*/}
-    //
 
 
-//
-// </Grid.container>)
-    return data.map((d, index) =><> <Grid xs={8}><Text h4>{d.className}</Text></Grid>
-        <Grid xs={4}><Text h5>@{d.location}</Text></Grid>
-        <Grid xs={5}><Text h5>{d.time}</Text></Grid>
-        <Grid xs={7}><Text h5>{d.time}</Text></Grid></>)
+    useEffect(()=>{
+        getData()
+    },[]);
+
+
+
+
+
+    return <Grid.Container gap={1}>
+        {data.map((d, index) => <Card variant="bordered" key={d.class_id}>
+            <Card.Body>
+               <Grid.Container>
+                   <Grid xs={8}>{d.class_name}</Grid>
+                   <Grid xs={4}>{d.class_date.split("T")[0]}</Grid>
+                   <Grid xs={4}>From: {d.starttime.split("T")[1].split("Z")[0]}</Grid>
+                   <Grid xs={4}>To: {d.endtime.split("T")[1].split("Z")[0]}</Grid>
+               </Grid.Container>
+            </Card.Body>
+        </Card> )}
+    </Grid.Container>
+
+
 
 
 }

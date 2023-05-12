@@ -15,24 +15,23 @@ const EmployeeDashboard = () => {
 
     const navigate = useNavigate();
 
+    let e  = JSON.parse(sessionStorage.employee)
+
 
     useEffect(()=>{
 
-        // let e  = sessionStorage.employee
-        // let u = sessionStorage.user
-        //
-        //
-        // if(!e){
-        //     navigate("/login");
-        // }
+
+
+
+        if(!e){
+            navigate("/login");
+        }
 
 
 
     },[])
 
-    const employee={
-        name:"Chiruhas"
-    }
+   let employee = e
 
     return <>
         {/*todo*/}
@@ -51,7 +50,7 @@ const EmployeeDashboard = () => {
 
         </Grid.Container>
 
-        {/*<ClassInfo/>*/}
+        <ClassInfo/>
 
 
 

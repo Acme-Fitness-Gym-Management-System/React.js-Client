@@ -5,6 +5,7 @@ import EmployeeDashboard from "./Components/Employee/EmployeeDashboard";
 import CustomerDashboard from "./Components/Users/UserDashboard";
 import Login from "./Components/Login/Login";
 import UserDashboard from "./Components/Users/UserDashboard";
+import Error from "./Components/Error";
 
 
 const theme = createTheme({
@@ -57,6 +58,7 @@ function App() {
 
                     <Route path='/login' element={<Login/>}/>
 
+                    <Route path="*" element={<Error/>} />
 
 
                 </Routes>

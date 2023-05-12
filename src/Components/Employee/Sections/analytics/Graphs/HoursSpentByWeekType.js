@@ -84,7 +84,7 @@ const HoursSpentByWeekType = () => {
         datasets: [
             {
                 label: 'Hour\'s Spent',
-                data: labels.map(() => faker.datatype.number({ min: 0, max: 1000 })),
+                data: labels.map(() => faker.datatype.number({ min: 0, max: 500 })),
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
             },
@@ -116,7 +116,7 @@ const HoursSpentByWeekType = () => {
 
         const dayType = v === 'Week-Day' ? 0 : 1
 
-        const d = axios.get(`http://13.57.252.62/someEndpoint?locationid=${locationValue}&dayType=${dayType}`)
+       // const d = axios.get(`http://100.26.42.194/someEndpoint?locationid=${locationValue}&dayType=${dayType}`)
 
 
         // setClassData((p) => {

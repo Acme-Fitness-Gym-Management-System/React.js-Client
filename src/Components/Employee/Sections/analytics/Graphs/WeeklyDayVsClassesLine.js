@@ -90,7 +90,7 @@ const WeeklyDayVsClassesLine = () => {
 
         const locationValue = dp[0].value
 
-        const d = axios.get(`http://13.57.252.62/someEndpoint?locationid=${locationValue}`)
+        const d = axios.get(`http://100.26.42.194/someEndpoint?locationid=${locationValue}`)
 
         //const d =[{attendees:40, classes_offered:50, day:'Monday'},{attendees:60, classes_offered:70, day:'Monday'}]
 

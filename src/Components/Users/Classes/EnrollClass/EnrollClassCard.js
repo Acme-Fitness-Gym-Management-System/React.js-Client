@@ -1,6 +1,7 @@
 import {Button, Card, Grid, Loading, Text} from "@nextui-org/react";
 import React, {useEffect, useState} from "react";
 import axios from "axios";
+import {useNavigate} from "react-router-dom";
 
 
 const EnrollClassCard = (props) => {
@@ -8,7 +9,8 @@ const EnrollClassCard = (props) => {
 
     const [data, setData] = useState(props.data);
 
-    let el=''
+
+    const navigate = useNavigate();
 
 
     const clickHandler = async () => {
@@ -21,9 +23,13 @@ const EnrollClassCard = (props) => {
         // id of the class that is clicked will be availale in props.id.
 
         //todo
-        const user = JSON.parse(sessionStorage.user)
+        let user = sessionStorage.user
 
-        const data = {
+        if(!user){
+            navigate("/login")
+        }
+
+        const d = {
             courseid: props.id,
             userid: user.id
         }
@@ -34,7 +40,7 @@ const EnrollClassCard = (props) => {
 
         try{
 
-           await axios.post("http://13.57.252.62:8080/classCatalogue", JSON.stringify(data) )
+           await axios.post("http://100.26.42.194:8080/classCatalogue", JSON.stringify(d) )
 
 
         el =  <Button size="xs" style={{
@@ -42,6 +48,13 @@ const EnrollClassCard = (props) => {
             right: 0,
             bottom: 0
         }} type="submit" color="success" disabled>Enrolled</Button>;
+
+          setData((d)=>{
+              return {
+                  ...data,
+                  enrollment_status : "Enrolled"
+              }
+          })
 
 
         }catch (e){
@@ -56,15 +69,9 @@ const EnrollClassCard = (props) => {
     }
 
     const [loading, setLoading] = useState(false);
-    const [enrolled, setEnrolled] = useState(false)
 
-    // if (data.enrollment_status === "Enrolled") {
-    //     setEnrolled(true);
-    // } else {
-    //     setEnrolled(false);
-    // }
 
-     el = loading ? <Button size="xs" type="submit" style={{
+    let el = loading ? <Button size="xs" type="submit" style={{
         position: 'absolute',
         right: 0,
         bottom: 0
@@ -80,7 +87,9 @@ const EnrollClassCard = (props) => {
             bottom: 0
         }} type="submit" color="success" disabled>Enrolled</Button>
 
-    return <Card isHoverable>
+
+
+    let e = data?<Card isHoverable>
         <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
 
             <Grid.Container>
@@ -168,7 +177,9 @@ const EnrollClassCard = (props) => {
             height={200}
             alt="Card image background"
         />
-    </Card>
+    </Card>:""
+
+    return e
 
 }
 

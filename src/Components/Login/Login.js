@@ -58,7 +58,7 @@ export default () => {
         setPassword(event.target.value)
     }
     const authenticate = async (email, pass) => {
-        const response = await axios.post("http://localhost:8080/login", {
+        const response = await axios.post("http://100.26.42.194:8080/login", {
             email: email,
             password: pass
         });
