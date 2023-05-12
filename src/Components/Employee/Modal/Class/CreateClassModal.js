@@ -10,7 +10,7 @@ const CreateClassModal = forwardRef(({}, ref) => {
         }
     })
 
-    const days=[{key:"Monday"},{key:"Tuesday"},{key:"Wednesday"},{key:"Thursday"},{key:"Friday"},{key:"Saturday"}]
+    const days=[{key:"Monday"},{key:"Tuesday"},{key:"Wednesday"},{key:"Thursday"},{key:"Friday"},{key:"Saturday"},{key:"Sunday"}]
 
     // hardcoded these locations for now
     // todo change value corresponding
@@ -76,8 +76,6 @@ const CreateClassModal = forwardRef(({}, ref) => {
 
                 return el.key===location
             })
-            const locValue = d[0].value
-
             const data = {
                 name: event.target.className.value, //change to name
                 instructorname: event.target.instructorName.value,

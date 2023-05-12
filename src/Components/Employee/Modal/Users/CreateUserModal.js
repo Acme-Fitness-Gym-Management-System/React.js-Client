@@ -13,6 +13,13 @@ const CreateUserModal = forwardRef(({}, ref) => {
         }
     })
 
+    const [selected, setSelected] = React.useState(new Set(["Choose Membership"]));
+
+    const selectedValue = React.useMemo(
+        () => Array.from(selected).join(", ").replaceAll("_", " "),
+        [selected]
+    );
+
     const [isTrail, setIsTrail] = useState(false);
     const [loading, setLoading] = useState(false);
 
@@ -34,12 +41,15 @@ const CreateUserModal = forwardRef(({}, ref) => {
 
     const formSubmitHandler = (event) => {
         event.preventDefault();
+
+        console.log(selectedValue);
+
         const data={
             username :event.target.userName.value,
             password :event.target.password.value,
             email:event.target.email.value,
             istrail:isTrail,
-            membership:isTrail?1: parseInt(event.target.membership.value)
+            membership:isTrail?1: parseInt(selectedValue)
         }
 
 
@@ -75,7 +85,24 @@ const CreateUserModal = forwardRef(({}, ref) => {
 
 
     const months = !isTrail ?  <Grid xs={12} justify={"center"}>
-        <Input clearable bordered type="number" labelPlaceholder="Membership" name="membership" min={1} max={12} required />
+        <Dropdown>
+            <Dropdown.Button flat color="secondary" css={{ tt: "capitalize" }}>
+                {selectedValue}
+            </Dropdown.Button>
+            <Dropdown.Menu
+                aria-label="Single selection actions"
+                color="secondary"
+                disallowEmptySelection
+                selectionMode="single"
+                selectedKeys={selected}
+                onSelectionChange={setSelected}
+            >
+                <Dropdown.Item key="3">Silver (3 Months)</Dropdown.Item>
+                <Dropdown.Item key="6">Gold (6 months)</Dropdown.Item>
+                <Dropdown.Item key="12">Platinum (12 months)</Dropdown.Item>
+
+            </Dropdown.Menu>
+        </Dropdown>
     </Grid> : ""
 
     return <>
@@ -105,7 +132,7 @@ const CreateUserModal = forwardRef(({}, ref) => {
 
                     </Grid>
                     <Grid xs={12} justify={"center"}>
-                        <Checkbox required isSelected={isTrail} onChange={setIsTrail}>checking out a free trail ?</Checkbox>
+                        <Checkbox required isSelected={isTrail} onChange={setIsTrail}>checking out a free trail ? (1 month)</Checkbox>
                     </Grid>
 
                     {months}

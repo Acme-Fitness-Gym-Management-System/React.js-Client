@@ -273,28 +273,7 @@ const Analytics = () => {
             <AnalyticsCards data={data}/>
         </Grid>
 
-        <Grid xs={10}>
 
-        </Grid>
-        <Grid xs={2}>
-
-        </Grid>
-        <Grid xs={6}>
-            <WeeklyDayVsClassesLine/>
-        </Grid>
-        <Grid xs={6}>
-            <ClassesVsUsers/>
-
-        </Grid>
-        <Grid xs={12}>
-            <HoursSpentByWeekType/>
-        </Grid>
-        <Grid xs={12}>
-
-                <MostVisitedDayHeatMap/>
-
-
-        </Grid>
 
 
     </Grid.Container>

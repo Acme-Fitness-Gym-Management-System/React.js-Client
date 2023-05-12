@@ -23,7 +23,9 @@ const EnrollClassCard = (props) => {
         // id of the class that is clicked will be availale in props.id.
 
         //todo
-        let user = sessionStorage.user
+        let user = JSON.parse(sessionStorage.user)
+
+        console.log(user);
 
         if(!user){
             navigate("/login")
@@ -33,6 +35,8 @@ const EnrollClassCard = (props) => {
             courseid: props.id,
             userid: user.id
         }
+
+        console.log(d);
 
 
         setLoading(true);
@@ -174,7 +178,7 @@ const EnrollClassCard = (props) => {
             src="https://nextui.org/images/card-example-4.jpeg"
             objectFit="cover"
             width="100%"
-            height={200}
+            height={300}
             alt="Card image background"
         />
     </Card>:""
