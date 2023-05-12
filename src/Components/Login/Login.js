@@ -58,7 +58,7 @@ export default () => {
         setPassword(event.target.value)
     }
     const authenticate = async (email, pass) => {
-        const response = await axios.post("http://100.26.42.194:8080/login", {
+        const response = await axios.post("http://gym-backend-autoscale-group-1-2059727889.us-east-1.elb.amazonaws.com:8080/login", {
             email: email,
             password: pass
         });

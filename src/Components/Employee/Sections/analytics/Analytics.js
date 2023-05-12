@@ -74,7 +74,7 @@ const Analytics = () => {
 
         console.log(graph);
 
-        // const { data } = await axios.get(`http://100.26.42.194:8080/getgraph?xaxis=${xaxis}&yaxis=${yaxis}`);
+        // const { data } = await axios.get(`http://gym-backend-autoscale-group-1-2059727889.us-east-1.elb.amazonaws.com:8080/getgraph?xaxis=${xaxis}&yaxis=${yaxis}`);
 
         // setData(data);
     };
@@ -193,7 +193,7 @@ const Analytics = () => {
         })
         dp = dp[0].value+1
 
-         let { data } = await axios.get(`http://100.26.42.194:8080/getOverallAnalytics?type=${dp}`);
+         let { data } = await axios.get(`http://gym-backend-autoscale-group-1-2059727889.us-east-1.elb.amazonaws.com:8080/getOverallAnalytics?type=${dp}`);
 
         data = JSON.parse(data)
 

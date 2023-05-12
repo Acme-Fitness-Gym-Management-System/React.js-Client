@@ -58,7 +58,7 @@ const LandingPageClassInfo = () => {
         })
         const locValue = dp[0].value
 
-        const {data} = await axios.get(`http://100.26.42.194:8080/getClassesForEmployee?day=${d}&locationid=${locValue}`);
+        const {data} = await axios.get(`http://gym-backend-autoscale-group-1-2059727889.us-east-1.elb.amazonaws.com:8080/getClassesForEmployee?day=${d}&locationid=${locValue}`);
         console.log(data);
         setData(data)
 

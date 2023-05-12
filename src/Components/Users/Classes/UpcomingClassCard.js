@@ -20,7 +20,7 @@ const UpcomingClassCard = (props) => {
     const getData = async()=>{
 
 
-        const {data}= await axios.get(`http://100.26.42.194:8080/getUpcomingClasses?userid=${user.id}`)
+        const {data}= await axios.get(`http://gym-backend-autoscale-group-1-2059727889.us-east-1.elb.amazonaws.com:8080/getUpcomingClasses?userid=${user.id}`)
 
         console.log(data);
 

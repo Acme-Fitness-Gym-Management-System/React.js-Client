@@ -15,23 +15,21 @@ const EmployeeDashboard = () => {
 
     const navigate = useNavigate();
 
-    let e  = JSON.parse(sessionStorage.employee)
+    let employee  = ""
 
 
     useEffect(()=>{
 
-
-
-
-        if(!e){
+        employee = sessionStorage.employee
+        if(!employee){
             navigate("/login");
         }
+        employee = JSON.parse(employee)
 
 
 
     },[])
 
-   let employee = e
 
     return <>
         {/*todo*/}

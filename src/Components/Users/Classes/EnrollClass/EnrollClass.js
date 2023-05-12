@@ -67,7 +67,7 @@ const EnrollClass = (props) => {
         })
         const locValue = dp[0].value
 
-        const { data } = await axios.get(`http://100.26.42.194:8080/getClasses?day=${d}&locationid=${locValue}&userid=${user.id}`);
+        const { data } = await axios.get(`http://gym-backend-autoscale-group-1-2059727889.us-east-1.elb.amazonaws.com:8080/getClasses?day=${d}&locationid=${locValue}&userid=${user.id}`);
         console.log(data);
         setData(data)
 

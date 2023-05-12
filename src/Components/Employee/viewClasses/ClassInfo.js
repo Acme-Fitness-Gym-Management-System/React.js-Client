@@ -12,8 +12,8 @@ const ClassInfo = ()=>{
     const [selected, setSelected] = React.useState(new Set(["Sunday"]));
     const [selectedDay, setSelectedDay] = useState("Sunday");
 
-    const employee = JSON.parse(sessionStorage.employee)
 
+    let locationId=''
     const selectedValue = React.useMemo(
         () => Array.from(selected).join(", ").replaceAll("_", " "),
         [selected]
@@ -29,11 +29,20 @@ const ClassInfo = ()=>{
         selected.forEach((value) =>{
             d = value
         });
-        const { data } = await axios.get(`http://100.26.42.194:8080/getClassesForEmployee?day=${d}&locationid=${employee.locationid}`);
+        const { data } = await axios.get(`http://gym-backend-autoscale-group-1-2059727889.us-east-1.elb.amazonaws.com:8080/getClassesForEmployee?day=${d}&locationid=${locationId}`);
         setData(data);
     };
 
     useEffect(()=>{
+
+        const employee = (sessionStorage.employee)
+
+        if(!employee)
+            locationId = 1;
+        else
+            locationId = JSON.parse(employee).locationid
+
+
         getData()
     },[])
 

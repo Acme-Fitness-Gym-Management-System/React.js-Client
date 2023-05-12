@@ -24,7 +24,7 @@ const UserDashboard = () => {
     // fetching activity data
     const getData = async () => {
 
-        const { data } = await axios.get(`http://100.26.42.194:8080/getDayWiseUserActivity?userid=${user.id}`);
+        const { data } = await axios.get(`http://gym-backend-autoscale-group-1-2059727889.us-east-1.elb.amazonaws.com:8080/getDayWiseUserActivity?userid=${user.id}`);
 
         // todo figure out how to properly update state.
         let temp = [];

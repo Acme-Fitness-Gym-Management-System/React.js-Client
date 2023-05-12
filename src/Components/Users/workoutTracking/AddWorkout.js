@@ -49,7 +49,7 @@ const AddWorkout = ()=>{
     }
 
 
-    // http://100.26.42.194:8080/userActivity (post)
+    // http://gym-backend-autoscale-group-1-2059727889.us-east-1.elb.amazonaws.com:8080/userActivity (post)
     const apiCall = async (data)=>{
 
 
@@ -57,7 +57,7 @@ const AddWorkout = ()=>{
 
         try{
             console.log(JSON.stringify(data));
-            await axios.post("http://100.26.42.194:8080/userActivity", JSON.stringify(data) )
+            await axios.post("http://gym-backend-autoscale-group-1-2059727889.us-east-1.elb.amazonaws.com:8080/userActivity", JSON.stringify(data) )
             alert("Data Submitted sucessfully")
 
 

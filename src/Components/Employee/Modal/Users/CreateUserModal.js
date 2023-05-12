@@ -55,7 +55,7 @@ const CreateUserModal = forwardRef(({}, ref) => {
         console.log(JSON.stringify(data))
         try{
 
-           const response =  await axios.post("http://100.26.42.194:8080/usersV2", JSON.stringify(data) )
+           const response =  await axios.post("http://gym-backend-autoscale-group-1-2059727889.us-east-1.elb.amazonaws.com:8080/usersV2", JSON.stringify(data) )
             console.log(response);
             alert("User data entered sucessfully");
             setAddClassVisible(false);

@@ -40,7 +40,7 @@ const EnrollClassCard = (props) => {
 
         try{
 
-           await axios.post("http://100.26.42.194:8080/classCatalogue", JSON.stringify(d) )
+           await axios.post("http://gym-backend-autoscale-group-1-2059727889.us-east-1.elb.amazonaws.com:8080/classCatalogue", JSON.stringify(d) )
 
 
         el =  <Button size="xs" style={{
