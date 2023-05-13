@@ -16,6 +16,12 @@ const AboutUs = () => {
                   weight="bold">About Us</Text>
         </Grid>
 
+        <Grid xs={2}> </Grid>
+        <Grid xs={8} justify={"center"}><Text h3>Start building your own legacy with the best strength training areas,
+            group classes, cardio and free weights and Personal Trainers at a Acme Fitness Center near you.</Text>
+        </Grid>
+        <Grid xs={2}> </Grid>
+
 
     </Grid.Container>
 

@@ -29,7 +29,7 @@ const Memberships = ()=>{
                     <Grid.Container>
                         <Grid xs={12} justify={"center"}> <Text h2> Platinum </Text> </Grid>
                         <Grid xs={1}></Grid>
-                        <Grid xs={10}><Text> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea nemo sunt voluptates. A assumenda in sapiente ullam vitae voluptatibus. Ad dicta</Text></Grid>
+                        <Grid xs={10}><Text> Platinum membership covers gym membership for 12 months, you can access everything the gym has to offer. </Text></Grid>
                         <Grid xs={1}></Grid>
                     </Grid.Container>
 
@@ -50,7 +50,7 @@ const Memberships = ()=>{
                     <Grid.Container>
                         <Grid xs={12} justify={"center"}> <Text h2> Gold </Text> </Grid>
                         <Grid xs={1}></Grid>
-                        <Grid xs={10}><Text> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea nemo sunt voluptates. A assumenda in sapiente ullam vitae voluptatibus. Ad dicta</Text></Grid>
+                        <Grid xs={10}><Text> Gold membership covers gym membership for 6 months, you can access everything the gym has to offer, if you wish to like the experience, you can always upgrade :).</Text></Grid>
                         <Grid xs={1}></Grid>
                     </Grid.Container>
 
@@ -71,7 +71,7 @@ const Memberships = ()=>{
                     <Grid.Container>
                         <Grid xs={12} justify={"center"}> <Text h2> Silver </Text> </Grid>
                         <Grid xs={1}></Grid>
-                        <Grid xs={10}><Text> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea nemo sunt voluptates. A assumenda in sapiente ullam vitae voluptatibus. Ad dicta</Text></Grid>
+                        <Grid xs={10}><Text> Silver membership covers 3 months, this is suitable for those who want to test the waters, before getting in, no problem, start slow.</Text></Grid>
                         <Grid xs={1}></Grid>
                     </Grid.Container>
 

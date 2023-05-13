@@ -7,8 +7,9 @@ const ViewClassCard = (props)=>{
 
     const data = props.data
 
-    return  <Card isHoverable >
-        <Card.Header css={{ position: "absolute", zIndex: 1, top: 5 }}>
+    return  <Card isHoverable   style={{backgroundImage: "linear-gradient(to right, #919bff, #133a94)" }}  width="100%"
+                  height={220}>
+        <Card.Header >
 
             <Grid.Container>
                 <Grid xs={8}>
@@ -76,13 +77,7 @@ const ViewClassCard = (props)=>{
             </Grid.Container>
 
         </Card.Header>
-        <Card.Image
-            src="https://nextui.org/images/card-example-4.jpeg"
-            objectFit="cover"
-            width="100%"
-            height={220}
-            alt="Card image background"
-        />
+
     </Card>
 }
 

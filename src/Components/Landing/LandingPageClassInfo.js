@@ -84,7 +84,7 @@ const LandingPageClassInfo = () => {
     // const el = loading ? <Button type="submit"><Loading color='success'/></Button> :
     //     <Button type="submit">Submit</Button>
 
-    return <Grid.Container style={{display: "flex"}}>
+    return <Grid.Container style={{display: "flex"}} gap={2}>
         <Grid xs={12} justify={"center"}>
             <Text h2 css={{
                 textGradient: "45deg, $blue600 -20%, $pink600 50%",

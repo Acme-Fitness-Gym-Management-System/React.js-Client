@@ -93,10 +93,11 @@ const EnrollClassCard = (props) => {
 
 
 
-    let e = data?<Card isHoverable>
-        <Card.Header css={{position: "absolute", zIndex: 1, top: 5}}>
+    let e = data?<Card isHoverable style={{backgroundImage: "linear-gradient(to right, #919bff, #133a94)" }}  width="100%"
+                       height={220}>
+        <Card.Header >
 
-            <Grid.Container>
+            <Grid.Container gap={0.2}>
                 <Grid xs={8}>
                     <Text h3 color="white">
                         {data.class_name}
@@ -174,13 +175,7 @@ const EnrollClassCard = (props) => {
             </Grid.Container>
 
         </Card.Header>
-        <Card.Image
-            src="https://nextui.org/images/card-example-4.jpeg"
-            objectFit="cover"
-            width="100%"
-            height={225}
-            alt="Card image background"
-        />
+
     </Card>:""
 
     return e

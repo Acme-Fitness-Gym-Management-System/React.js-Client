@@ -27,11 +27,6 @@ const LandingPage = ()=>{
                 <Navbar.Link color="inherit" href="/login">
                     Sign In
                 </Navbar.Link>
-                {/*<Navbar.Item>*/}
-                {/*    <Button auto flat as={Link} href="/login">*/}
-                {/*        Login*/}
-                {/*    </Button>*/}
-                {/*</Navbar.Item>*/}
             </Navbar.Content>
         </Navbar>
 
