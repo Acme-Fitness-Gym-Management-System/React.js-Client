@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# Acme Fitness (Gym Management System)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Team Members
+1. Chiruhas
+2. Priyanka 
+3. Raviraj 
+4. Jaswanth
 
-## Available Scripts
+# XP Core Values
 
-In the project directory, you can run:
+## Simplicity:
+This core value was held by Chiruhas. Held responsible for maintaining the workflow of everyone in our team. Been responsible for developing the GUI for our web application. As GUI holds the implementation of all the API’s maintaining the transparency for each API helped us to maintain reliability and integrity for our application. Moreover, I have also taken care of maintaining the measures for building each API.
 
-### `npm start`
+## Communication:
+This core value is held by Priyanka. Held responsible for managing the operations that are performed during the course of our project. At each level of project, this core value made sure that all the deliverables of the project are met. On a whole by following Communication value we are aware how much unfinished work is in process and made sure that the work is completed as a team by prioritizing it.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Feedback:
+This core value is held by Raviraj. Held responsible for maintaining the continuous feedback loop as it was essential for relentless improvement, We reduced the time for each item that is dependent on another item to travel through the system. We also avoided problems caused by task switching and reduced the need to constantly reprioritize items.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Courage:
+This core value was held by Jaswanth. Held responsible for taking courage to tell truth and be more of a realist. Not every problem is solvable as presented to us and we need to realistically assess each opportunity. So I made sure the learning and adaption of each API was clearly visible to our entire team so that the work progress is a continuous integration for building our final product.
 
-### `npm test`
+# Tools and Technology Used:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Frontend: React.js, NextUI
+### Backend: GoLang
+### Database: PostgreSQL (Deployed on Amazon RDS)
+### Deployment: Amazon EC2 Auto scaled cluster with Load balancing (Deployed using Docker Image)
 
-### `npm run build`
+## Tasks:
+### Frontend: Chiruhas, Raviraj, Priyanka
+### Backend: Jaswanth, Priyanka, Jaswanth
+### Deployment: Raviraj, Jaswanth, Chiruhas
+### Database: Chiruhas, Priyanka, Raviraj, Jaswanth
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Scrum Meetings:
+Friday 3pm-3:30pm
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Architecture Diagram:
 
-### `npm run eject`
+![architecture.png](readme_stuff/architecture.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Deployment Diagram:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![deployment_diagram.png](readme_stuff/deployment_diagram.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Use Case Diagram:
+![use_case.png](readme_stuff/use_case.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Component Diagram:
 
-## Learn More
+![component_diagram.png](readme_stuff/component_diagram.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## DB Schema:
+![db_schema.png](readme_stuff/db_schema.png)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Auto Scaled EC 2 Instances:
 
-### Code Splitting
+![auto_scale.png](readme_stuff/auto_Scale.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+## Auto-scaling-instances:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+![auto_scale_instance.png](readme_stuff/auto_scale_instance.png)
 
-### Making a Progressive Web App
+## Autoscaling group:
+![auto_scale_group.png](readme_stuff/autoscaling_group.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+![img_5.png](readme_stuff/autoscaling_group2.png)
 
-### Advanced Configuration
+## Load Balancer:
+![img_6.png](readme_stuff/load_balancer.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## Documentation
+## Project Task Board
+## Project Journal
+## Burndown Chart
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
+## UI Wireframes:
+![img_7.png](readme_stuff/wireframe1.png)
+![img_8.png](readme_stuff/wireframe2.png)
+![img_9.png](readme_stuff/wireframe3.png)
+![img_10.png](readme_stuff/wireframe4.png)
+![img_11.png](readme_stuff/wireframe5.png)
+![img_12.png](readme_stuff/wireframe6.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+

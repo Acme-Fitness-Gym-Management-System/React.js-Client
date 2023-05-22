@@ -1,26 +1,14 @@
-import {Line} from 'react-chartjs-2';
-import {
-    BarElement,
-    CategoryScale,
-    Chart as ChartJS,
-    Legend,
-    LinearScale,
-    LineElement,
-    PointElement,
-    Title
-} from "chart.js";
-import {Dropdown, Grid, Tooltip} from "@nextui-org/react";
-import React, {useEffect, useState} from "react";
-import axios from "axios";
+import {Bar} from 'react-chartjs-2';
+import {BarElement, CategoryScale, Chart as ChartJS, Legend, LinearScale, Title} from "chart.js";
+import {Dropdown, Grid} from "@nextui-org/react";
+import React from "react";
 import {faker} from "@faker-js/faker";
-import { Bar } from 'react-chartjs-2';
 //,
 ChartJS.register(
     CategoryScale,
     LinearScale,
     BarElement,
     Title,
-    Tooltip,
     Legend
 );
 
@@ -48,8 +36,7 @@ const ClassesVsUsers = () => {
     // const [enrollmentData, setEnrollmentData] = useState([]);
     //
 
-    let labels = ["Yoga","Meditation","Resistance Training","Jumba","Kick Boxing"];
-
+    let labels = ["Yoga", "Meditation", "Resistance Training", "Jumba", "Kick Boxing"];
 
 
     const options = {
@@ -70,7 +57,7 @@ const ClassesVsUsers = () => {
         datasets: [
             {
                 label: 'Hour\'s Spent',
-                data: labels.map(() => faker.datatype.number({ min: 0, max: 40 })),
+                data: labels.map(() => faker.datatype.number({min: 0, max: 40})),
                 backgroundColor: 'rgba(53, 162, 235, 0.5)'
             },
 

@@ -1,6 +1,7 @@
 {
   "name": "gym_frontend",
   "version": "0.1.0",
+  "homepage": ".",
   "private": true,
   "dependencies": {
     "@faker-js/faker": "^7.6.0",
