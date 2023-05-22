@@ -23,14 +23,14 @@
 
 ## Component Diagram:
 
-![component_diagram.png](readme_stuff/component_diagram.png)
+![component_diagram.png](readme_stuff/component_diagram.jpg)
 
 ## DB Schema:
 ![db_schema.png](readme_stuff/db_schema.png)
 
 ## Auto Scaled EC 2 Instances:
 
-![auto_scale.png](readme_stuff/auto_Scale.png)
+![auto_scale.png](readme_stuff/auto_scale.png)
 
 
 ## Auto-scaling-instances:
